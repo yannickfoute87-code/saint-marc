@@ -413,14 +413,18 @@ form textarea {
     background: white;
     flex-direction: column;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
-    overflow: hidden;
     min-width: 200px;
     z-index: 1000;
 }
 
-/* Pour les sous-menus imbriqués (Senior A, B, C) */
-.dropdown-submenu .dropdown-menu-item .dropdown-submenu {
+/* Premier niveau dropdown */
+.dropdown-menu-item > .dropdown-submenu {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Sous-menus imbriqués */
+.dropdown-submenu .dropdown-menu-item > .dropdown-submenu {
     top: 0;
     left: 100%;
     border-radius: 0 5px 5px 0;
@@ -430,6 +434,7 @@ form textarea {
 
 .dropdown-submenu li {
     padding: 0;
+    list-style: none;
 }
 
 .dropdown-submenu li a {
@@ -451,22 +456,18 @@ form textarea {
     font-weight: 600;
 }
 
+/* Show dropdown on hover */
 .dropdown-menu-item:hover > .dropdown-submenu {
-    display: flex;
-}
-
-.dropdown-menu-item:hover .dropdown-submenu {
     display: flex;
 }
 
 /* Desktop nav dropdown */
 @media (min-width: 769px) {
-    .dropdown-submenu {
-        display: none;
-        position: absolute;
+    .dropdown-menu-item:hover > .dropdown-submenu {
+        display: flex;
     }
     
-    .dropdown-menu-item:hover .dropdown-submenu {
+    .dropdown-menu-item .dropdown-menu-item:hover > .dropdown-submenu {
         display: flex;
     }
 }
@@ -474,22 +475,18 @@ form textarea {
 /* Mobile nav dropdown */
 @media (max-width: 768px) {
     .dropdown-submenu {
-        display: none;
         position: static;
         box-shadow: none;
         background: #f5f5f5;
         border-top: 1px solid var(--border-color);
-    }
-    
-    .dropdown-menu-item .dropdown-submenu {
-        margin-left: 20px;
+        overflow: hidden !important;
     }
     
     .dropdown-submenu li a {
-        padding-left: 40px;
+        padding-left: 20px;
     }
     
-    .dropdown-menu-item.active .dropdown-submenu {
+    .dropdown-menu-item.active > .dropdown-submenu {
         display: flex;
     }
 }
