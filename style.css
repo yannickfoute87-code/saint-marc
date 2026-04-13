@@ -461,13 +461,18 @@ form textarea {
     display: flex;
 }
 
+/* Pour les sous-menus imbriqués (quand tu hover sur "Pôle Senior") */
+.dropdown-submenu .dropdown-menu-item:hover > .dropdown-submenu {
+    display: flex;
+}
+
 /* Desktop nav dropdown */
 @media (min-width: 769px) {
     .dropdown-menu-item:hover > .dropdown-submenu {
         display: flex;
     }
     
-    .dropdown-menu-item .dropdown-menu-item:hover > .dropdown-submenu {
+    .dropdown-submenu .dropdown-menu-item:hover > .dropdown-submenu {
         display: flex;
     }
 }
