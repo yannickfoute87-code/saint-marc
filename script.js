@@ -37,6 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Carousel duplicate for infinite scroll
     initializeCarouselLoop();
+
+    // Pole Dropdown
+    initializePoleDropdown();
 });
 
 function initializeHeroStats() {
@@ -100,6 +103,40 @@ function initializeCarouselLoop() {
         const clone = img.cloneNode(true);
         track.appendChild(clone);
     });
+}
+
+function initializePoleDropdown() {
+    const poleDropdown = document.getElementById('poleDropdown');
+    
+    if (!poleDropdown) return;
+
+    poleDropdown.addEventListener('change', function() {
+        const selectedPole = this.value;
+        
+        if (selectedPole === '') {
+            // Show all sections
+            console.log('Afficher tous les pôles');
+        } else if (selectedPole === 'senior') {
+            console.log('Afficher: Pôle Senior');
+        } else if (selectedPole === 'u17-18') {
+            console.log('Afficher: Pôle U17/U18');
+        } else if (selectedPole === 'u13-15') {
+            console.log('Afficher: Pôle U13/U15');
+        } else if (selectedPole === 'u7-u9-u11') {
+            console.log('Afficher: Pôle U7/U9/U11');
+        } else if (selectedPole === 'feminin') {
+            console.log('Afficher: Pôle Féminin');
+        }
+        
+        // Save selection to localStorage
+        localStorage.setItem('selectedPole', selectedPole);
+    });
+    
+    // Restore previous selection
+    const savedPole = localStorage.getItem('selectedPole');
+    if (savedPole) {
+        poleDropdown.value = savedPole;
+    }
 }
 
 
