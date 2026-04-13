@@ -1,0 +1,598 @@
+/* ===========================
+   SAINT MARC FOOTBALL - STYLES
+   =========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #003DA5;
+    --secondary-color: #FFD700;
+    --dark-color: #1a1a1a;
+    --light-color: #f5f5f5;
+    --text-color: #333;
+    --border-color: #ddd;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: #fafafa;
+}
+
+/* ============= HEADER ============= */
+header {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.header-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-left {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.club-info h1 {
+    color: var(--primary-color);
+    font-size: 20px;
+    margin: 0;
+}
+
+.club-info p {
+    color: #666;
+    font-size: 11px;
+    margin: 2px 0 0 0;
+}
+
+.header-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-header-center {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.header-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.logo-section h1 {
+    color: var(--primary-color);
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.logo-section p {
+    color: #666;
+    font-size: 12px;
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* ============= HERO ============= */
+.hero {
+    background: linear-gradient(135deg, rgba(0, 61, 165, 0.4), rgba(0, 86, 204, 0.4));
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    min-height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 1;
+    opacity: 0.4;
+    filter: brightness(0.8);
+}
+
+.carousel-track-bg {
+    display: flex;
+    height: 100%;
+    animation: scrollCarousel 100s linear infinite;
+}
+
+.carousel-track-bg img {
+    width: 100vw;
+    min-width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.carousel-section-title {
+    width: 100vw;
+    min-width: 100vw;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #003DA5 0%, #1a5ec9 100%);
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Poppins', sans-serif;
+}
+
+@keyframes scrollCarousel {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-2700vw);
+    }
+}
+
+.carousel-track-bg:hover {
+    animation-play-state: paused;
+}
+
+.hero-stats {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px 25px;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 100;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.stat-icon {
+    font-size: 18px;
+}
+
+.stat-text {
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    padding: 0;
+}
+
+.like-btn:hover {
+    transform: scale(1.3);
+}
+
+.like-btn.liked {
+    animation: heartPulse 0.5s ease;
+}
+
+@keyframes heartPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+    100% { transform: scale(1.2); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* ============= CONTAINER ============= */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+section h2 {
+    color: var(--primary-color);
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* ============= CARDS ============= */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #666;
+    line-height: 1.8;
+}
+
+/* ============= BUTTONS ============= */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #0030a5;
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: var(--dark-color);
+}
+
+.btn-secondary:hover {
+    background: #ffc700;
+}
+
+/* ============= FORMS ============= */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+form input,
+form textarea,
+form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(0, 61, 165, 0.2);
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* ============= FOOTER ============= */
+footer {
+    background: var(--dark-color);
+    color: white;
+    padding: 40px 20px 20px;
+    margin-top: 60px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-section h4 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--secondary-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.facebook-btn {
+    background-color: #1877F2;
+}
+
+.facebook-btn:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+.instagram-btn {
+    background: linear-gradient(135deg, #F58529 0%, #DD2A7B 50%, #8134AF 100%);
+}
+
+.instagram-btn:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+.linkedin-btn {
+    background-color: #0A66C2;
+}
+
+.linkedin-btn:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #999;
+}
+
+/* ============= RESPONSIVE ============= */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 10px 15px;
+    }
+
+    .header-left {
+        flex: 0.8;
+    }
+
+    .logo-left {
+        width: 40px;
+        height: 40px;
+    }
+
+    .club-info h1 {
+        font-size: 16px;
+    }
+
+    .club-info p {
+        font-size: 10px;
+    }
+
+    .header-center {
+        flex: 0.5;
+    }
+
+    .logo-header-center {
+        width: 50px;
+        height: 50px;
+    }
+
+    .header-right {
+        flex: 0.7;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: white;
+        gap: 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .carousel-track-bg img {
+        width: 100vw;
+        min-width: 100vw;
+    }
+
+    .carousel-section-title {
+        font-size: 24px;
+    }
+
+    .hero-stats {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+
+    section h2 {
+        font-size: 28px;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .social-btn {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+
+    .social-links {
+        gap: 10px;
+    }
+}

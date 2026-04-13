@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saint Marc Football - Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="header-left">
+                <img src="photo/logo rond blanc.PNG" alt="Logo" class="logo-left">
+                <div class="club-info">
+                    <h1>Saint Marc FC</h1>
+                    <p>Ensemble pour la victoire</p>
+                </div>
+            </div>
+            <div class="header-center">
+                <img src="photo/logo rond blanc.PNG" alt="Logo Saint Marc FC" class="logo-header-center">
+            </div>
+            <div class="header-right">
+                <button class="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="club.html">Club</a></li>
+                        <li><a href="equipes.html">Équipes</a></li>
+                        <li><a href="boutique.html">Boutique</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="heroSection">
+        <div class="carousel-background" id="carouselBackground">
+            <div class="carousel-track-bg" id="carouselTrackBg">
+                <!-- COUVERTURE -->
+                <img src="photo/IMG_2231.JPG" alt="Photo">
+                <div class="carousel-section-title">Les Jeunes U6 - U9</div>
+                
+                <!-- JEUNES U6-U9 -->
+                <img src="photo/U6_U7.JPG" alt="U6-U7">
+                <img src="photo/U8.JPG" alt="U8">
+                <img src="photo/U8_U9.JPG" alt="U8-U9">
+                <img src="photo/U9.JPG" alt="U9">
+                <div class="carousel-section-title">Les Jeunes U10 - U13</div>
+                
+                <!-- JEUNES U10-U13 -->
+                <img src="photo/U10.JPG" alt="U10">
+                <img src="photo/U10_U11.JPG" alt="U10-U11">
+                <img src="photo/U11.JPG" alt="U11">
+                <img src="photo/U12.JPG" alt="U12">
+                <img src="photo/U12_U13.JPG" alt="U12-U13">
+                <img src="photo/U13.JPG" alt="U13">
+                <div class="carousel-section-title">Les Jeunes U14 - U15</div>
+                
+                <!-- JEUNES U14-U15 -->
+                <img src="photo/U14.JPG" alt="U14">
+                <img src="photo/U14F_U15F.JPG" alt="U14F-U15F">
+                <img src="photo/U14_U15.JPG" alt="U14-U15">
+                <img src="photo/U15.JPG" alt="U15">
+                <div class="carousel-section-title">Les Jeunes U16 - U18</div>
+                
+                <!-- JEUNES U16-U18 -->
+                <img src="photo/U16.JPG" alt="U16">
+                <img src="photo/U17.JPG" alt="U17">
+                <img src="photo/U17_U18.JPG" alt="U17-U18">
+                <img src="photo/U18.JPG" alt="U18">
+                <div class="carousel-section-title">Les Seniors</div>
+                
+                <!-- SENIORS -->
+                <img src="photo/Seniors A.JPG" alt="Seniors A">
+                <img src="photo/Seniors B.JPG" alt="Seniors B">
+                <img src="photo/Seniors C.JPG" alt="Seniors C">
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1>Nous Contacter</h1>
+            <p>Nous serions ravis de discuter avec toi</p>
+        </div>
+    </section>
+
+    <!-- CONTENU PRINCIPAL -->
+    <div class="container">
+        <section>
+            <h2>Informations de Contact</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>📧 Email</h3>
+                    <p><a href="mailto:saintmarcfoot@gmail.com">saintmarcfoot@gmail.com</a></p>
+                </div>
+                <div class="card">
+                    <h3>📞 Téléphone</h3>
+                    <p><a href="tel:+33962154887">+33 9 62 15 48 87</a></p>
+                </div>
+                <div class="card">
+                    <h3>📍 Adresse</h3>
+                    <p>3 Rue Albert Einstein<br>44600 SAINT-NAZAIRE</p>
+                </div>
+                <div class="card">
+                    <h3>🕐 Horaires</h3>
+                    <p>Lun-Ven: 09h00-18h00<br>Sam: 10h00-16h00</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Formulaire de Contact</h2>
+            <form id="contactForm">
+                <label for="nom">Nom Complet:</label>
+                <input type="text" id="nom" name="nom" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="telephone">Téléphone (Optionnel):</label>
+                <input type="tel" id="telephone" name="telephone">
+
+                <label for="sujet">Sujet:</label>
+                <select id="sujet" name="sujet" required>
+                    <option value="">-- Sélectionnez un sujet --</option>
+                    <option value="rejoindre">Je veux rejoindre le club</option>
+                    <option value="partenariat">Partenariat</option>
+                    <option value="evenement">Organiser un événement</option>
+                    <option value="autre">Autre demande</option>
+                </select>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit" class="btn">Envoyer</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Réseaux Sociaux</h2>
+            <div style="text-align: center;">
+                <p>Suivez-nous sur nos réseaux sociaux pour les dernières actualités!</p>
+                <div style="margin-top: 20px;">
+                    <a href="#" class="btn btn-secondary" style="margin: 10px;">Facebook</a>
+                    <a href="#" class="btn btn-secondary" style="margin: 10px;">Instagram</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>À Propos</h4>
+                <p>Saint Marc Football est un club fondé sur les valeurs de passion, d'excellence et de respect.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="club.html">Club</a></li>
+                    <li><a href="equipes.html">Équipes</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: <a href="mailto:saintmarcfoot@gmail.com">saintmarcfoot@gmail.com</a></p>
+                <p>Tel: +33 9 62 15 48 87</p>
+            </div>
+            <div class="footer-section">
+                <h4>Suivez-Nous</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/17PXhodGtZ/?mibextid=wwXIfr" target="_blank" title="Facebook" class="social-btn facebook-btn">Facebook</a>
+                    <a href="https://www.instagram.com/saintmarcfootball?igsh=MTlsZHZ5NmU4bGlvYg==" target="_blank" title="Instagram" class="social-btn instagram-btn">Instagram</a>
+                    <a href="https://www.linkedin.com/company/saint-marc-football" target="_blank" title="LinkedIn" class="social-btn linkedin-btn">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Saint Marc Football. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
