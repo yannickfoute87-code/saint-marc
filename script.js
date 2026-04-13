@@ -57,6 +57,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Carousel duplicate for infinite scroll
     initializeCarouselLoop();
+
+    // Load pole gallery on equipes page
+    if (document.getElementById('poleGallery')) {
+        loadPoleGallery();
+    }
 });
 
 function initializeHeroStats() {
@@ -120,6 +125,74 @@ function initializeCarouselLoop() {
         const clone = img.cloneNode(true);
         track.appendChild(clone);
     });
+}
+
+function loadPoleGallery() {
+    // Get URL parameters
+    const params = new URLSearchParams(window.location.search);
+    const pole = params.get('pole');
+    const team = params.get('team');
+    
+    // Define photos for each pole
+    const polePhotos = {
+        senior: {
+            title: 'Pôle Senior',
+            photos: ['Seniors A.JPG', 'Seniors B.JPG', 'Seniors C.JPG']
+        },
+        'senior-a': {
+            title: 'Senior A',
+            photos: ['Seniors A.JPG']
+        },
+        'senior-b': {
+            title: 'Senior B',
+            photos: ['Seniors B.JPG']
+        },
+        'senior-c': {
+            title: 'Senior C',
+            photos: ['Seniors C.JPG']
+        },
+        'u17-18': {
+            title: 'Pôle U17/U18',
+            photos: ['U16.JPG', 'U17.JPG', 'U17_U18.JPG', 'U18.JPG']
+        },
+        'u13-15': {
+            title: 'Pôle U13/U15',
+            photos: ['U13.JPG', 'U14.JPG', 'U14F_U15F.JPG', 'U14_U15.JPG', 'U15.JPG']
+        },
+        'u7-u9-u11': {
+            title: 'Pôle U7/U9/U11',
+            photos: ['U6_U7.JPG', 'U8.JPG', 'U8_U9.JPG', 'U9.JPG', 'U10.JPG', 'U10_U11.JPG', 'U11.JPG']
+        },
+        'feminin': {
+            title: 'Pôle Féminin',
+            photos: ['U14F_U15F.JPG']
+        }
+    };
+    
+    // Check if team parameter exists (Senior A, B, C)
+    let poleKey = pole;
+    if (pole === 'senior' && team) {
+        poleKey = `senior-${team}`;
+    }
+    
+    const poleData = polePhotos[poleKey];
+    const gallery = document.getElementById('photoGallery');
+    const title = document.getElementById('poleTitle');
+    
+    if (poleData) {
+        title.textContent = poleData.title;
+        gallery.innerHTML = '';
+        
+        poleData.photos.forEach(photo => {
+            const card = document.createElement('div');
+            card.className = 'photo-card';
+            card.innerHTML = `<img src="photo/${photo}" alt="${photo}" loading="lazy">`;
+            gallery.appendChild(card);
+        });
+    } else if (pole) {
+        title.textContent = 'Aucune photo disponible';
+        gallery.innerHTML = '<p>Sélectionnez un pôle pour voir les photos.</p>';
+    }
 }
 
 
