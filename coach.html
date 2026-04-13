@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saint Marc Football - Espace Coach</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .coach-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .login-form {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .login-form h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .login-form button:hover {
+            background: #0030a5;
+        }
+
+        .error {
+            color: #d32f2f;
+            margin-bottom: 15px;
+        }
+
+        .coach-content {
+            display: none;
+        }
+
+        .coach-content.active {
+            display: block;
+        }
+
+        .coach-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+        }
+
+        .logout-btn {
+            background: #d32f2f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .logout-btn:hover {
+            background: #b71c1c;
+        }
+
+        .pole-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .pole-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .upload-section {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 2px dashed var(--primary-color);
+        }
+
+        .upload-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .file-input-label {
+            display: block;
+            padding: 12px 20px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .file-input-label:hover {
+            background: #0030a5;
+        }
+
+        .file-name {
+            margin-top: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .convocation-display {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .convocation-display h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .convocation-preview {
+            max-height: 500px;
+            overflow: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .convocation-preview img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .convocation-preview iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            background: #ffc700;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .photo-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .success {
+            background: #4caf50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .delete-btn {
+            background: #d32f2f;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .delete-btn:hover {
+            background: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="header-left">
+                <img src="photo/logo rond blanc.PNG" alt="Logo" class="logo-left">
+                <div class="club-info">
+                    <h1>Saint Marc Football</h1>
+                    <p>Espace Coach</p>
+                </div>
+            </div>
+            <div class="header-center">
+                <img src="photo/logo rond blanc.PNG" alt="Logo Saint Marc Football" class="logo-header-center">
+            </div>
+            <div class="header-right">
+                <a href="index.html" class="btn">Retour Accueil</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- LOGIN FORM -->
+    <div class="coach-container">
+        <div id="loginForm" class="login-form">
+            <h2>Espace Coach</h2>
+            <div id="errorMessage" class="error"></div>
+            <input type="password" id="passwordInput" placeholder="Mot de passe" autocomplete="off">
+            <button onclick="checkPassword()">Connexion</button>
+        </div>
+
+        <!-- COACH CONTENT -->
+        <div id="coachContent" class="coach-content">
+            <!-- COACH HEADER -->
+            <div class="coach-header">
+                <div>
+                    <h2>Bienvenue Coach! 👋</h2>
+                    <p id="poleDisplay"></p>
+                </div>
+                <button class="logout-btn" onclick="logout()">Déconnexion</button>
+            </div>
+
+            <!-- SUCCESS MESSAGE -->
+            <div id="successMessage" class="success" style="display: none;"></div>
+
+            <!-- PHOTOS SECTION -->
+            <div class="pole-section">
+                <div class="pole-title">Photos de l'équipe</div>
+                <div id="photoGallery" class="photo-gallery"></div>
+            </div>
+
+            <!-- UPLOAD CONVOCATION SECTION -->
+            <div class="pole-section">
+                <div class="upload-section">
+                    <h3>Uploader la convocation</h3>
+                    <p style="color: #666; font-size: 14px; margin-bottom: 15px;">
+                        Formats acceptés: PDF, Images (JPG, PNG), Excel
+                    </p>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="convocationFile" accept=".pdf,.jpg,.jpeg,.png,.xlsx,.xls" onchange="uploadConvocation()">
+                        <label for="convocationFile" class="file-input-label">
+                            Cliquez pour sélectionner un fichier
+                        </label>
+                    </div>
+                    <div id="fileName" class="file-name"></div>
+                </div>
+
+                <!-- AFFICHER CONVOCATION -->
+                <div id="convocationDisplay" class="convocation-display" style="display: none;">
+                    <h3>Convocation actuelle</h3>
+                    <div id="convocationPreview" class="convocation-preview"></div>
+                    <button class="download-btn" onclick="downloadConvocation()">Télécharger</button>
+                    <button class="delete-btn" onclick="deleteConvocation()">Supprimer</button>
+                </div>
+                <p id="noConvocation" style="color: #999; text-align: center; margin-top: 20px;">Aucune convocation uploadée</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Coach page specific functions
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (password === 'yasmine') {
+                // Get pole from URL
+                const params = new URLSearchParams(window.location.search);
+                const pole = params.get('pole');
+                const team = params.get('team');
+
+                // Store in sessionStorage (disappears when tab closes)
+                sessionStorage.setItem('coachLogged', 'true');
+                sessionStorage.setItem('coachPole', pole);
+                sessionStorage.setItem('coachTeam', team);
+
+                showCoachPanel(pole, team);
+            } else if (password) {
+                errorMessage.textContent = 'Mot de passe incorrect!';
+            }
+        }
+
+        function showCoachPanel(pole, team) {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('coachContent').classList.add('active');
+
+            // Display pole info
+            const poleNames = {
+                senior: 'Pôle Senior',
+                'u17-18': 'Pôle U17/U18',
+                'u13-15': 'Pôle U13/U15',
+                'u7-u9-u11': 'Pôle U7/U9/U11',
+                'feminin': 'Pôle Féminin'
+            };
+
+            let display = poleNames[pole] || 'Équipe';
+            if (pole === 'senior' && team) {
+                display = `Senior ${team.toUpperCase()}`;
+            }
+
+            document.getElementById('poleDisplay').textContent = `Gestion: ${display}`;
+
+            // Load photos
+            loadCoachPhotos(pole, team);
+
+            // Load convocation
+            loadConvocation(pole, team);
+        }
+
+        function loadCoachPhotos(pole, team) {
+            const polePhotos = {
+                senior: ['Seniors A.JPG', 'Seniors B.JPG', 'Seniors C.JPG'],
+                'senior-a': ['Seniors A.JPG'],
+                'senior-b': ['Seniors B.JPG'],
+                'senior-c': ['Seniors C.JPG'],
+                'u17-18': ['U16.JPG', 'U17.JPG', 'U17_U18.JPG', 'U18.JPG'],
+                'u13-15': ['U13.JPG', 'U14.JPG', 'U14F_U15F.JPG', 'U14_U15.JPG', 'U15.JPG'],
+                'u7-u9-u11': ['U6_U7.JPG', 'U8.JPG', 'U8_U9.JPG', 'U9.JPG', 'U10.JPG', 'U10_U11.JPG', 'U11.JPG'],
+                'feminin': ['U14F_U15F.JPG']
+            };
+
+            let poleKey = pole;
+            if (pole === 'senior' && team) {
+                poleKey = `senior-${team}`;
+            }
+
+            const photos = polePhotos[poleKey] || [];
+            const gallery = document.getElementById('photoGallery');
+            gallery.innerHTML = '';
+
+            photos.forEach(photo => {
+                const card = document.createElement('div');
+                card.className = 'photo-card';
+                card.innerHTML = `<img src="photo/${photo}" alt="${photo}" loading="lazy">`;
+                gallery.appendChild(card);
+            });
+        }
+
+        function uploadConvocation() {
+            const file = document.getElementById('convocationFile').files[0];
+            if (!file) return;
+
+            const fileName = document.getElementById('fileName');
+            fileName.textContent = `Fichier sélectionné: ${file.name}`;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const pole = sessionStorage.getItem('coachPole');
+                const team = sessionStorage.getItem('coachTeam');
+                const key = `convocation_${pole}_${team || ''}`;
+
+                const data = {
+                    content: e.target.result,
+                    name: file.name,
+                    type: file.type,
+                    size: file.size
+                };
+
+                localStorage.setItem(key, JSON.stringify(data));
+
+                // Show success message
+                const successMessage = document.getElementById('successMessage');
+                successMessage.textContent = 'Convocation uploadée avec succès!';
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 3000);
+
+                loadConvocation(pole, team);
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+        function loadConvocation(pole, team) {
+            const key = `convocation_${pole}_${team || ''}`;
+            const data = localStorage.getItem(key);
+
+            if (data) {
+                const convocation = JSON.parse(data);
+                const preview = document.getElementById('convocationPreview');
+                const display = document.getElementById('convocationDisplay');
+                const noConvocation = document.getElementById('noConvocation');
+
+                preview.innerHTML = '';
+
+                // Display based on file type
+                if (convocation.type.includes('image')) {
+                    preview.innerHTML = `<img src="${convocation.content}" alt="Convocation">`;
+                } else if (convocation.type.includes('pdf')) {
+                    preview.innerHTML = `<iframe src="${convocation.content}"></iframe>`;
+                } else if (convocation.type.includes('spreadsheet') || convocation.type.includes('excel')) {
+                    preview.innerHTML = `<p>Fichier Excel: <strong>${convocation.name}</strong></p><p>Cliquez sur "Télécharger" pour voir le fichier complet</p>`;
+                } else {
+                    preview.innerHTML = `<p>Fichier: <strong>${convocation.name}</strong></p>`;
+                }
+
+                display.style.display = 'block';
+                noConvocation.style.display = 'none';
+            } else {
+                document.getElementById('convocationDisplay').style.display = 'none';
+                document.getElementById('noConvocation').style.display = 'block';
+            }
+        }
+
+        function downloadConvocation() {
+            const pole = sessionStorage.getItem('coachPole');
+            const team = sessionStorage.getItem('coachTeam');
+            const key = `convocation_${pole}_${team || ''}`;
+            const data = localStorage.getItem(key);
+
+            if (data) {
+                const convocation = JSON.parse(data);
+                const link = document.createElement('a');
+                link.href = convocation.content;
+                link.download = convocation.name;
+                link.click();
+            }
+        }
+
+        function deleteConvocation() {
+            const pole = sessionStorage.getItem('coachPole');
+            const team = sessionStorage.getItem('coachTeam');
+            const key = `convocation_${pole}_${team || ''}`;
+
+            localStorage.removeItem(key);
+
+            const successMessage = document.getElementById('successMessage');
+            successMessage.textContent = 'Convocation supprimée!';
+            successMessage.style.display = 'block';
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000);
+
+            loadConvocation(pole, team);
+        }
+
+        function logout() {
+            sessionStorage.removeItem('coachLogged');
+            location.reload();
+        }
+
+        // Check if already logged in
+        window.addEventListener('load', function() {
+            if (sessionStorage.getItem('coachLogged') === 'true') {
+                const pole = sessionStorage.getItem('coachPole');
+                const team = sessionStorage.getItem('coachTeam');
+                showCoachPanel(pole, team);
+            }
+        });
+    </script>
+</body>
+</html>
