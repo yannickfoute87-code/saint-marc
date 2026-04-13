@@ -30,8 +30,12 @@ document.addEventListener('DOMContentLoaded', function() {
             link.addEventListener('click', function(e) {
                 // On mobile, toggle dropdown
                 if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    item.classList.toggle('active');
+                    // Check if has nested submenu
+                    const hasSubmenu = item.querySelector('.dropdown-submenu');
+                    if (hasSubmenu) {
+                        e.preventDefault();
+                        item.classList.toggle('active');
+                    }
                 }
             });
         });
