@@ -209,6 +209,10 @@ function loadPoleGallery() {
         poleData.photos.forEach(photo => {
             const card = document.createElement('div');
             card.className = 'photo-card';
+            // Add special class for feminine pole
+            if (poleKey === 'feminin') {
+                card.classList.add('photo-card-large');
+            }
             const category = photoCategories[photo] || 'Photo';
             card.innerHTML = `
                 <div class="photo-category">${category}</div>

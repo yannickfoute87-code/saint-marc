@@ -545,6 +545,14 @@ form textarea {
     transform: scale(1.05);
 }
 
+.photo-card-large {
+    grid-column: span 1;
+}
+
+.photo-card-large img {
+    height: 350px;
+}
+
 /* ============= FOOTER ============= */
 footer {
     background: var(--dark-color);
