@@ -133,6 +133,29 @@ function loadPoleGallery() {
     const pole = params.get('pole');
     const team = params.get('team');
     
+    // Map photos to their categories
+    const photoCategories = {
+        'Seniors A.JPG': 'Senior A',
+        'Seniors B.JPG': 'Senior B',
+        'Seniors C.JPG': 'Senior C',
+        'U16.JPG': 'U16',
+        'U17.JPG': 'U17',
+        'U17_U18.JPG': 'U17/U18',
+        'U18.JPG': 'U18',
+        'U13.JPG': 'U13',
+        'U14.JPG': 'U14',
+        'U14F_U15F.JPG': 'U14F/U15F',
+        'U14_U15.JPG': 'U14/U15',
+        'U15.JPG': 'U15',
+        'U6_U7.JPG': 'U6/U7',
+        'U8.JPG': 'U8',
+        'U8_U9.JPG': 'U8/U9',
+        'U9.JPG': 'U9',
+        'U10.JPG': 'U10',
+        'U10_U11.JPG': 'U10/U11',
+        'U11.JPG': 'U11'
+    };
+    
     // Define photos for each pole
     const polePhotos = {
         senior: {
@@ -186,7 +209,11 @@ function loadPoleGallery() {
         poleData.photos.forEach(photo => {
             const card = document.createElement('div');
             card.className = 'photo-card';
-            card.innerHTML = `<img src="photo/${photo}" alt="${photo}" loading="lazy">`;
+            const category = photoCategories[photo] || 'Photo';
+            card.innerHTML = `
+                <div class="photo-category">${category}</div>
+                <img src="photo/${photo}" alt="${photo}" loading="lazy">
+            `;
             gallery.appendChild(card);
         });
     } else if (pole) {
