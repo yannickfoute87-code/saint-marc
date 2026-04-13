@@ -31,7 +31,16 @@
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
                         <li><a href="club.html">Club</a></li>
-                        <li><a href="equipes.html">Équipes</a></li>
+                        <li class="dropdown-menu-item">
+                            <a href="equipes.html">Équipes ▼</a>
+                            <ul class="dropdown-submenu">
+                                <li><a href="equipes.html?pole=senior">Pôle Senior</a></li>
+                                <li><a href="equipes.html?pole=u17-18">Pôle U17/U18</a></li>
+                                <li><a href="equipes.html?pole=u13-15">Pôle U13/U15</a></li>
+                                <li><a href="equipes.html?pole=u7-u9-u11">Pôle U7/U9/U11</a></li>
+                                <li><a href="equipes.html?pole=feminin">Pôle Féminin</a></li>
+                            </ul>
+                        </li>
                         <li><a href="boutique.html">Boutique</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
@@ -92,21 +101,6 @@
 
     <!-- CONTENU PRINCIPAL -->
     <div class="container">
-        <!-- DROPDOWN POLES -->
-        <section style="text-align: center; margin: 30px 0;">
-            <h2>Sélectionnez un Pôle</h2>
-            <div class="dropdown-container">
-                <select id="poleDropdown" class="pole-dropdown">
-                    <option value="">-- Choisir un pôle --</option>
-                    <option value="senior">Pôle Senior</option>
-                    <option value="u17-18">Pôle U17/U18</option>
-                    <option value="u13-15">Pôle U13/U15</option>
-                    <option value="u7-u9-u11">Pôle U7/U9/U11</option>
-                    <option value="feminin">Pôle Féminin</option>
-                </select>
-            </div>
-        </section>
-
         <section>
             <h2>Catégories par Âge</h2>
             <div class="card-grid">
