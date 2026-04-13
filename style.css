@@ -546,13 +546,14 @@ form textarea {
 }
 
 .photo-card-large {
-    grid-column: span 2;
+    grid-column: span 1;
     justify-self: center;
-    max-width: 600px;
+    max-width: 350px;
+    width: 100%;
 }
 
 .photo-card-large img {
-    height: 400px;
+    height: 280px;
 }
 
 /* ============= FOOTER ============= */
