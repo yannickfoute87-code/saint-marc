@@ -30,7 +30,14 @@
                 <nav>
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
-                        <li><a href="club.html">Club</a></li>
+                        <li class="dropdown-menu-item">
+                            <a href="club.html">Club</a>
+                            <ul class="dropdown-submenu">
+                                <li><a href="#vie-du-club">Vie du club</a></li>
+                                <li><a href="#a-propos-du-club">A propos du club</a></li>
+                                <li><a href="#evenements">Evenements</a></li>
+                            </ul>
+                        </li>
                         <li class="dropdown-menu-item">
                             <a href="equipes.html">Équipes</a>
                             <ul class="dropdown-submenu">
@@ -108,14 +115,14 @@
 
     <!-- CONTENU PRINCIPAL -->
     <div class="container">
-        <section>
+        <section id="a-propos-du-club">
             <h2>Notre Histoire</h2>
             <div class="card">
                 <p>Saint Marc Football a été fondé avec une vision claire: créer un club où chaque joueur peut se développer, apprendre et s'épanouir. Au fil des années, notre club a grandi et s'est établi comme l'une des institutions principales du football local.</p>
             </div>
         </section>
 
-        <section>
+        <section id="vie-du-club">
             <h2>Nos Valeurs</h2>
             <div class="card-grid">
                 <div class="card">
@@ -145,6 +152,13 @@
                 <p>Lundi: 14h-18h<br>Mardi: 9h-17h<br>Mercredi: 9h-17h<br>Vendredi: 9h-17h</p>
                 <p><strong>Président:</strong> [Nom du Président]</p>
                 <p><strong>Manager:</strong> [Nom du Manager]</p>
+            </div>
+        </section>
+
+        <section id="evenements">
+            <h2>Evenements</h2>
+            <div class="card">
+                <p>Retrouve ici les temps forts du club, les rencontres importantes et les animations qui rythment la saison de Saint Marc Football.</p>
             </div>
         </section>
 
