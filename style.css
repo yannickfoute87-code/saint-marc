@@ -34,23 +34,22 @@ header {
 }
 
 .top-bar {
-    background: #17191f;
-    color: rgba(255, 255, 255, 0.78);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: #003da5;
+    color: rgba(255, 255, 255, 0.95);
+    border-bottom: none;
 }
 
 .top-bar-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 10px 20px;
+    padding: 8px 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    gap: 20px;
+    gap: 12px;
 }
 
-.top-bar-contact,
-.top-bar-socials {
+.top-bar-contact {
     display: flex;
     align-items: center;
     gap: 18px;
@@ -59,7 +58,7 @@ header {
 
 .top-bar a,
 .top-bar span {
-    color: rgba(255, 255, 255, 0.78);
+    color: rgba(255, 255, 255, 0.95);
     text-decoration: none;
     font-size: 12px;
     text-transform: uppercase;
@@ -108,23 +107,8 @@ header {
     margin: 2px 0 0 0;
 }
 
-.header-center {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo-header-center {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-}
-
 .header-right {
-    flex: 1;
+    flex: 0 1 auto;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -152,23 +136,25 @@ nav ul {
     list-style: none;
     gap: 0;
     align-items: stretch;
-    background: #23262d;
-    border-radius: 0;
+    background: #ffffff;
+    border: 2px solid #003da5;
+    border-radius: 16px;
     overflow: visible;
+    box-shadow: 0 14px 30px rgba(0, 61, 165, 0.08);
 }
 
 nav a {
     text-decoration: none;
-    color: #ffffff;
+    color: #003da5;
     font-weight: 600;
     transition: color 0.3s, background 0.3s;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 nav a:hover {
-    color: #ffffff;
+    color: #003da5;
 }
 
 nav ul > li > a,
@@ -182,11 +168,12 @@ nav ul > li > span {
 nav ul > li:hover > a,
 nav ul > li:hover > .nav-link-with-arrow,
 .mega-menu-item:hover > .nav-link-with-arrow {
-    background: linear-gradient(135deg, #2538ff 0%, #3d1dcb 100%);
+    background: #003da5;
+    color: #ffffff;
 }
 
 .nav-link-with-arrow::after {
-    content: "▾";
+    content: "▼";
     margin-left: 10px;
     font-size: 11px;
     line-height: 1;
@@ -481,12 +468,12 @@ form textarea {
     position: absolute;
     top: 100%;
     left: 0;
-    background: #23262d;
+    background: #ffffff;
     flex-direction: column;
-    box-shadow: 0 18px 32px rgba(0, 0, 0, 0.28);
+    box-shadow: 0 18px 32px rgba(0, 61, 165, 0.16);
     min-width: 200px;
     z-index: 1000;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 61, 165, 0.18);
 }
 
 /* Premier niveau dropdown */
@@ -512,10 +499,10 @@ form textarea {
 .dropdown-submenu li a {
     display: block;
     padding: 12px 20px;
-    color: rgba(255, 255, 255, 0.72);
+    color: #003da5;
     text-decoration: none;
     transition: background 0.3s;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(0, 61, 165, 0.08);
 }
 
 .dropdown-submenu li:last-child a {
@@ -523,8 +510,8 @@ form textarea {
 }
 
 .dropdown-submenu li a:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    color: #ffffff;
+    background-color: rgba(0, 61, 165, 0.08);
+    color: #003da5;
     font-weight: 600;
 }
 
@@ -535,18 +522,18 @@ form textarea {
 .mega-menu {
     left: 0;
     right: 0;
-    width: min(1120px, calc(100vw - 40px));
+    width: min(980px, calc(100vw - 24px));
     margin: 0 auto;
-    padding: 34px 34px 30px;
+    padding: 24px 22px 20px;
     display: none;
     flex-direction: row;
-    gap: 48px;
-    background: #1f2228;
+    gap: 20px;
+    background: #ffffff;
     border-radius: 0 0 18px 18px;
 }
 
 .compact-mega-menu {
-    width: min(760px, calc(100vw - 40px));
+    width: min(620px, calc(100vw - 24px));
 }
 
 .mega-menu-column {
@@ -557,11 +544,11 @@ form textarea {
 
 .mega-menu-title {
     display: block;
-    color: #ffffff;
-    font-size: 18px;
+    color: #003da5;
+    font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 22px;
+    margin-bottom: 16px;
 }
 
 .mega-menu-links {
@@ -575,13 +562,13 @@ form textarea {
     padding: 6px 0;
     border-bottom: none;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 14px;
+    color: #315d9a;
+    font-size: 13px;
 }
 
 .mega-menu-links li a:hover {
     background: transparent;
-    color: #ffffff;
+    color: #003da5;
 }
 
 /* Show dropdown on hover */
@@ -620,8 +607,8 @@ form textarea {
     .dropdown-submenu {
         position: static;
         box-shadow: none;
-        background: #2b2f37;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        background: #ffffff;
+        border-top: 1px solid rgba(0, 61, 165, 0.12);
         overflow: hidden !important;
         min-width: 100%;
         width: 100%;
