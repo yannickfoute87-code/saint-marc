@@ -420,7 +420,7 @@ form textarea {
 /* Premier niveau dropdown */
 .dropdown-menu-item > .dropdown-submenu {
     border-radius: 5px;
-    overflow: hidden;
+    overflow: visible;
 }
 
 /* Sous-menus imbriqués */
