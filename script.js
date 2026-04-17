@@ -226,4 +226,23 @@ function loadPoleGallery() {
     }
 }
 
+// Menu hamburger
+const hamburger = document.querySelector(".hamburger-menu");
+const navMenu = document.querySelector("nav ul");
 
+hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+});
+
+
+// Dropdown mobile
+document.querySelectorAll(".dropdown-menu-item > a").forEach(link => {
+    link.addEventListener("click", function(e) {
+
+        if(window.innerWidth < 900){
+            e.preventDefault();
+            this.parentElement.classList.toggle("active");
+        }
+
+    });
+});
