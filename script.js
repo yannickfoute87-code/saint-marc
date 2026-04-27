@@ -1,4 +1,4 @@
-/* ===========================
+﻿/* ===========================
    SAINT MARC FOOTBALL - SCRIPT
    =========================== */
 
@@ -246,3 +246,4 @@ document.querySelectorAll(".dropdown-menu-item > a").forEach(link => {
 
     });
 });
+
