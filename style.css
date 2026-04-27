@@ -792,6 +792,83 @@ footer {
 .section-accent h2::after { background: var(--secondary-color); }
 .section-accent p { color: rgba(255,255,255,0.85); margin-bottom: 24px; }
 
+/* ============= PARTENAIRES ============= */
+.partners-hero {
+    min-height: 420px;
+}
+
+.partners-hero .hero-content {
+    max-width: 900px;
+}
+
+.partners-intro {
+    max-width: 900px;
+    margin: 0 auto 24px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.partner-tier {
+    margin-bottom: 42px;
+}
+
+.partner-tier h3 {
+    color: var(--primary-color);
+    font-size: 22px;
+    margin-bottom: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.partner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 18px;
+}
+
+.partner-card {
+    background: var(--white);
+    border: 1px solid rgba(0, 61, 165, 0.12);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.partner-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(0, 61, 165, 0.28);
+}
+
+.partner-logo {
+    width: 100%;
+    height: 90px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, rgba(0, 61, 165, 0.1), rgba(0, 61, 165, 0.03));
+    border: 1px dashed rgba(0, 61, 165, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.partner-name {
+    color: var(--text-color);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.partner-note {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
 /* ============= STATS BAND ============= */
 .stats-band {
     display: grid;
