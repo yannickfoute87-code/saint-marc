@@ -957,22 +957,24 @@ footer {
     .dropdown-submenu {
         position: static;
         box-shadow: none;
-        border: none;
+        border: 1px solid var(--border-color);
         border-top: 1px solid var(--border-color);
         border-radius: 0;
         animation: none;
         width: 100%;
+        background: #fafdff;
         overflow: visible;
     }
 
     .mega-menu {
-        display: block;
+        display: block !important;
         padding: 12px 14px 16px 22px;
         width: 100%;
     }
 
     .mega-menu-column {
         min-width: 0;
+        display: block;
         margin-bottom: 14px;
     }
 
@@ -985,6 +987,7 @@ footer {
     }
 
     .mega-menu-links li a {
+        display: block;
         padding: 9px 10px !important;
         white-space: normal;
         line-height: 1.35;
@@ -992,7 +995,7 @@ footer {
 
     .dropdown-menu-item.active > .dropdown-submenu,
     .dropdown-submenu.open {
-        display: block;
+        display: block !important;
     }
 }
 

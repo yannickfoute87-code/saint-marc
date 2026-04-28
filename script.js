@@ -15,7 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
         dropdownItems.forEach(item => {
             const link = item.children[0];
             if (!link) return;
-            const submenu = item.querySelector(':scope > .dropdown-submenu');
+            const submenu = item.children[1] && item.children[1].classList && item.children[1].classList.contains('dropdown-submenu')
+                ? item.children[1]
+                : null;
 
             link.addEventListener('click', function(e) {
                 if (window.innerWidth <= 900) {
@@ -25,7 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     dropdownItems.forEach(otherItem => {
                         if (otherItem !== item) {
                             otherItem.classList.remove('active');
-                            const otherSubmenu = otherItem.querySelector(':scope > .dropdown-submenu');
+                            const otherSubmenu = otherItem.children[1] && otherItem.children[1].classList && otherItem.children[1].classList.contains('dropdown-submenu')
+                                ? otherItem.children[1]
+                                : null;
                             if (otherSubmenu) {
                                 otherSubmenu.classList.remove('open');
                             }
@@ -48,7 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     navMenu.classList.remove('active');
                     dropdownItems.forEach(item => item.classList.remove('active'));
                     dropdownItems.forEach(item => {
-                        const submenu = item.querySelector(':scope > .dropdown-submenu');
+                        const submenu = item.children[1] && item.children[1].classList && item.children[1].classList.contains('dropdown-submenu')
+                            ? item.children[1]
+                            : null;
                         if (submenu) {
                             submenu.classList.remove('open');
                         }
