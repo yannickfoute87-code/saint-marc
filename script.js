@@ -3,39 +3,42 @@
    =========================== */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Hamburger menu toggle
     const hamburger = document.querySelector('.hamburger-menu');
     const navMenu = document.querySelector('nav ul');
 
-    if (hamburger) {
+    if (hamburger && navMenu) {
         hamburger.addEventListener('click', function() {
             navMenu.classList.toggle('active');
         });
 
-        // Close menu when clicking on a link
-        const navLinks = navMenu.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                // Don't close if clicking on dropdown toggle
-                if (!this.closest('.dropdown-menu-item') || !this.nextElementSibling) {
-                    navMenu.classList.remove('active');
+        const dropdownItems = document.querySelectorAll('.dropdown-menu-item');
+        dropdownItems.forEach(item => {
+            const link = item.children[0];
+            if (!link) return;
+
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 900) {
+                    e.preventDefault();
+                    const isOpen = item.classList.contains('active');
+
+                    dropdownItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+
+                    item.classList.toggle('active', !isOpen);
                 }
             });
         });
-        
-        // Dropdown toggle for mobile
-        const dropdownItems = document.querySelectorAll('.dropdown-menu-item');
-        dropdownItems.forEach(item => {
-            const link = item.querySelector('a');
-            link.addEventListener('click', function(e) {
-                // On mobile, toggle dropdown
-                if (window.innerWidth <= 768) {
-                    // Check if has nested submenu
-                    const hasSubmenu = item.querySelector('.dropdown-submenu');
-                    if (hasSubmenu) {
-                        e.preventDefault();
-                        item.classList.toggle('active');
-                    }
+
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                const isDropdownToggle = this.parentElement && this.parentElement.classList.contains('dropdown-menu-item') && this.parentElement.querySelector('.dropdown-submenu');
+
+                if (window.innerWidth <= 900 && !isDropdownToggle) {
+                    navMenu.classList.remove('active');
+                    dropdownItems.forEach(item => item.classList.remove('active'));
                 }
             });
         });
@@ -189,6 +192,10 @@ function loadPoleGallery() {
         'feminin': {
             title: 'Pôle Féminin',
             photos: ['U14F_U15F.JPG']
+        },
+        'loisir': {
+            title: 'Pôle Équipe Loisirs',
+            photos: ['Seniors A.JPG', 'Seniors B.JPG', 'Seniors C.JPG']
         }
     };
     
@@ -225,25 +232,4 @@ function loadPoleGallery() {
         gallery.innerHTML = '<p>Sélectionnez un pôle pour voir les photos.</p>';
     }
 }
-
-// Menu hamburger
-const hamburger = document.querySelector(".hamburger-menu");
-const navMenu = document.querySelector("nav ul");
-
-hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-});
-
-
-// Dropdown mobile
-document.querySelectorAll(".dropdown-menu-item > a").forEach(link => {
-    link.addEventListener("click", function(e) {
-
-        if(window.innerWidth < 900){
-            e.preventDefault();
-            this.parentElement.classList.toggle("active");
-        }
-
-    });
-});
 
