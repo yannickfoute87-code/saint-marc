@@ -182,7 +182,7 @@ function loadPoleGallery() {
     // Define photos for each pole
     const polePhotos = {
         senior: {
-            title: 'Pôle Senior',
+            title: 'Seniors',
             photos: ['Seniors A.JPG', 'Seniors B.JPG', 'Seniors C.JPG']
         },
         'senior-a': {
@@ -197,25 +197,25 @@ function loadPoleGallery() {
             title: 'Senior C',
             photos: ['Seniors C.JPG']
         },
-        'u17-18': {
-            title: 'Pôle U17/U18',
+        'senior-d': {
+            title: 'Senior D',
+            photos: ['Seniors C.JPG']
+        },
+        formation: {
+            title: 'Pôle Formation',
             photos: ['U16.JPG', 'U17.JPG', 'U17_U18.JPG', 'U18.JPG']
         },
-        'u13-15': {
-            title: 'Pôle U13/U15',
-            photos: ['U13.JPG', 'U14.JPG', 'U14F_U15F.JPG', 'U14_U15.JPG', 'U15.JPG']
+        preformation: {
+            title: 'Pôle Préformation',
+            photos: ['U13.JPG', 'U14.JPG', 'U14_U15.JPG', 'U15.JPG']
         },
-        'u7-u9-u11': {
-            title: 'Pôle U7/U9/U11',
+        'ecole-foot': {
+            title: 'Pôle École de Foot',
             photos: ['U6_U7.JPG', 'U8.JPG', 'U8_U9.JPG', 'U9.JPG', 'U10.JPG', 'U10_U11.JPG', 'U11.JPG']
         },
         'feminin': {
             title: 'Pôle Féminin',
             photos: ['U14F_U15F.JPG']
-        },
-        'loisir': {
-            title: 'Pôle Équipe Loisirs',
-            photos: ['Seniors A.JPG', 'Seniors B.JPG', 'Seniors C.JPG']
         }
     };
     

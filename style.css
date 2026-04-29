@@ -869,6 +869,45 @@ footer {
     font-size: 14px;
 }
 
+.partner-scroll-section {
+    margin-bottom: 42px;
+}
+
+.partner-scroll-section h3 {
+    color: var(--primary-color);
+    font-size: 22px;
+    margin-bottom: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.partner-scroll-list {
+    max-height: 420px;
+    overflow-y: auto;
+    display: grid;
+    gap: 14px;
+    padding-right: 6px;
+}
+
+.partner-scroll-list .partner-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+    padding: 16px;
+}
+
+.partner-scroll-list .partner-logo {
+    flex: 0 0 120px;
+    height: 74px;
+    margin-bottom: 0;
+}
+
+.partner-scroll-list .partner-name {
+    margin-bottom: 4px;
+}
+
 /* ============= STATS BAND ============= */
 .stats-band {
     display: grid;
