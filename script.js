@@ -161,6 +161,7 @@ function loadPoleGallery() {
     const params = new URLSearchParams(window.location.search);
     const pole = params.get('pole');
     const team = params.get('team');
+    const age = params.get('age');
     
     // Map photos to their categories
     const photoCategories = {
@@ -224,6 +225,69 @@ function loadPoleGallery() {
             photos: ['U14F_U15F.JPG']
         }
     };
+
+    const agePhotos = {
+        u18: {
+            title: 'U18',
+            photos: ['U18.JPG']
+        },
+        u17: {
+            title: 'U17',
+            photos: ['U17.JPG']
+        },
+        u16: {
+            title: 'U16',
+            photos: ['U16.JPG']
+        },
+        u15: {
+            title: 'U15',
+            photos: ['U15.JPG']
+        },
+        u14: {
+            title: 'U14',
+            photos: ['U14.JPG']
+        },
+        u13a: {
+            title: 'U13A',
+            photos: ['U13.JPG']
+        },
+        u13: {
+            title: 'U13',
+            photos: ['U13.JPG']
+        },
+        u12: {
+            title: 'U12',
+            photos: ['U12.JPG']
+        },
+        u11: {
+            title: 'U11',
+            photos: ['U11.JPG']
+        },
+        u10: {
+            title: 'U10',
+            photos: ['U10.JPG']
+        },
+        u9: {
+            title: 'U9',
+            photos: ['U9.JPG']
+        },
+        u8: {
+            title: 'U8',
+            photos: ['U8.JPG']
+        },
+        u7: {
+            title: 'U7',
+            photos: ['U6_U7.JPG']
+        },
+        u6: {
+            title: 'U6',
+            photos: ['U6_U7.JPG']
+        },
+        u14f_u15f: {
+            title: 'U14F/U15F',
+            photos: ['U14F_U15F.JPG']
+        }
+    };
     
     // Check if team parameter exists (Seniors A, B, C, D)
     let poleKey = pole;
@@ -231,7 +295,7 @@ function loadPoleGallery() {
         poleKey = `senior-${team}`;
     }
     
-    const poleData = polePhotos[poleKey];
+    const poleData = age && agePhotos[age] ? agePhotos[age] : polePhotos[poleKey];
     const gallery = document.getElementById('photoGallery');
     const title = document.getElementById('poleTitle');
     
