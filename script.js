@@ -4,11 +4,15 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger-menu');
-    const navMenu = document.querySelector('nav ul');
+    const navMenu = document.querySelector('nav > ul');
 
     if (hamburger && navMenu) {
+        hamburger.setAttribute('aria-expanded', 'false');
+
         hamburger.addEventListener('click', function() {
             navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active') ? 'true' : 'false');
         });
 
         const dropdownItems = document.querySelectorAll('.dropdown-menu-item');
@@ -50,6 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 if (window.innerWidth <= 900 && !isDropdownToggle) {
                     navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
                     dropdownItems.forEach(item => item.classList.remove('active'));
                     dropdownItems.forEach(item => {
                         const submenu = item.children[1] && item.children[1].classList && item.children[1].classList.contains('dropdown-submenu')
@@ -158,9 +164,9 @@ function loadPoleGallery() {
     
     // Map photos to their categories
     const photoCategories = {
-        'Seniors A.JPG': 'Senior A',
-        'Seniors B.JPG': 'Senior B',
-        'Seniors C.JPG': 'Senior C',
+        'Seniors A.JPG': 'Seniors A',
+        'Seniors B.JPG': 'Seniors B',
+        'Seniors C.JPG': 'Seniors C',
         'U16.JPG': 'U16',
         'U17.JPG': 'U17',
         'U17_U18.JPG': 'U17/U18',
@@ -183,22 +189,22 @@ function loadPoleGallery() {
     const polePhotos = {
         senior: {
             title: 'Seniors',
-            photos: ['Seniors A.JPG', 'Seniors B.JPG', 'Seniors C.JPG']
+            photos: ['Seniors A.JPG', 'Seniors B.JPG', 'Seniors C.JPG', 'Seniors C.JPG']
         },
         'senior-a': {
-            title: 'Senior A',
+            title: 'Seniors A',
             photos: ['Seniors A.JPG']
         },
         'senior-b': {
-            title: 'Senior B',
+            title: 'Seniors B',
             photos: ['Seniors B.JPG']
         },
         'senior-c': {
-            title: 'Senior C',
+            title: 'Seniors C',
             photos: ['Seniors C.JPG']
         },
         'senior-d': {
-            title: 'Senior D',
+            title: 'Seniors D',
             photos: ['Seniors C.JPG']
         },
         formation: {
@@ -219,7 +225,7 @@ function loadPoleGallery() {
         }
     };
     
-    // Check if team parameter exists (Senior A, B, C)
+    // Check if team parameter exists (Seniors A, B, C, D)
     let poleKey = pole;
     if (pole === 'senior' && team) {
         poleKey = `senior-${team}`;
@@ -233,14 +239,16 @@ function loadPoleGallery() {
         title.textContent = poleData.title;
         gallery.innerHTML = '';
         
-        poleData.photos.forEach(photo => {
+        poleData.photos.forEach((photo, index) => {
             const card = document.createElement('div');
             card.className = 'photo-card';
             // Add special class for feminine pole
             if (poleKey === 'feminin') {
                 card.classList.add('photo-card-large');
             }
-            const category = photoCategories[photo] || 'Photo';
+            const category = poleKey === 'senior-d' || (poleKey === 'senior' && index === 3)
+                ? 'Seniors D'
+                : photoCategories[photo] || 'Photo';
             card.innerHTML = `
                 <div class="photo-category">${category}</div>
                 <img src="photo/${photo}" alt="${photo}" loading="lazy">
