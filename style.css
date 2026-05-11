@@ -619,6 +619,72 @@ section h2::after {
     box-shadow: 0 6px 20px rgba(255,215,0,0.35);
 }
 
+/* ============= ORGANIGRAMMES ============= */
+.document-page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 56px 20px 70px;
+}
+
+.document-page-header {
+    text-align: center;
+    margin-bottom: 34px;
+}
+
+.document-page-header p {
+    color: var(--primary-color);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.document-page-header h1 {
+    color: var(--primary-dark);
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.1;
+}
+
+.document-panel {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 24px;
+    overflow: hidden;
+    padding: 18px;
+}
+
+.organigramme-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.organigramme-pdf {
+    display: block;
+    width: 100%;
+    height: min(78vh, 900px);
+    min-height: 620px;
+    border: 0;
+}
+
+.document-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.document-fallback {
+    display: grid;
+    place-items: center;
+    gap: 18px;
+    min-height: 420px;
+    padding: 28px;
+    text-align: center;
+}
+
 /* ============= FORMS ============= */
 form {
     max-width: 600px;
@@ -1140,6 +1206,9 @@ footer {
     .card-grid { grid-template-columns: 1fr; }
 
     .container { padding: 40px 16px; }
+    .document-page { padding: 38px 14px 52px; }
+    .document-panel { padding: 10px; border-radius: var(--radius-md); }
+    .organigramme-pdf { min-height: 520px; height: 72vh; }
 
     .stats-band { grid-template-columns: repeat(2, 1fr); }
 
