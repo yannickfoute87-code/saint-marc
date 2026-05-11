@@ -298,11 +298,16 @@ function loadPoleGallery() {
     const poleData = age && agePhotos[age] ? agePhotos[age] : polePhotos[poleKey];
     const gallery = document.getElementById('photoGallery');
     const title = document.getElementById('poleTitle');
+    const seniorDetails = {
+        coaches: 'RENAUD LE QUILLIEC, ROMAIN GOUREAU, NICOLAS FRASLIN et IBRAHILA FALL',
+        players: '84 joueurs'
+    };
     const poleDetails = {
-        senior: {
-            coaches: 'RENAUD LE QUILLIEC, ROMAIN GOUREAU, NICOLAS FRASLIN et IBRAHILA FALL',
-            players: '84 joueurs'
-        }
+        senior: seniorDetails,
+        'senior-a': seniorDetails,
+        'senior-b': seniorDetails,
+        'senior-c': seniorDetails,
+        'senior-d': seniorDetails
     };
     
     if (poleData) {
