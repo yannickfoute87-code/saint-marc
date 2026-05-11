@@ -212,6 +212,18 @@ function loadPoleGallery() {
             title: 'Pôle Formation',
             photos: ['U16.JPG', 'U17.JPG', 'U17_U18.JPG', 'U18.JPG']
         },
+        'formation-u18': {
+            title: 'U18',
+            photos: ['U18.JPG']
+        },
+        'formation-u17': {
+            title: 'U17',
+            photos: ['U17.JPG']
+        },
+        'formation-u16': {
+            title: 'U16',
+            photos: ['U16.JPG']
+        },
         preformation: {
             title: 'Pôle Préformation',
             photos: ['U13.JPG', 'U14.JPG', 'U14_U15.JPG', 'U15.JPG']
@@ -294,6 +306,9 @@ function loadPoleGallery() {
     if (pole === 'senior' && team) {
         poleKey = `senior-${team}`;
     }
+    if (pole === 'formation' && age) {
+        poleKey = `formation-${age}`;
+    }
     
     const poleData = age && agePhotos[age] ? agePhotos[age] : polePhotos[poleKey];
     const gallery = document.getElementById('photoGallery');
@@ -324,6 +339,41 @@ function loadPoleGallery() {
             coachLabel: 'Entraîneur',
             coaches: 'IBRAHIMA FALL',
             players: '21 joueurs'
+        },
+        formation: {
+            coachLabel: 'Entraîneurs',
+            coaches: 'Kylian POUVREAU, Nicolas FRASLIN, Jordan GUIHENEUF',
+            players: '60 joueurs'
+        },
+        'formation-u18': {
+            coachLabel: 'Entraîneur',
+            coaches: 'Kylian POUVREAU',
+            players: '20 joueurs'
+        },
+        'formation-u17': {
+            coachLabel: 'Entraîneur',
+            coaches: 'Nicolas FRASLIN',
+            players: '20 joueurs'
+        },
+        'formation-u16': {
+            coachLabel: 'Entraîneur',
+            coaches: 'Jordan GUIHENEUF',
+            players: '20 joueurs'
+        },
+        u18: {
+            coachLabel: 'Entraîneur',
+            coaches: 'Kylian POUVREAU',
+            players: '20 joueurs'
+        },
+        u17: {
+            coachLabel: 'Entraîneur',
+            coaches: 'Nicolas FRASLIN',
+            players: '20 joueurs'
+        },
+        u16: {
+            coachLabel: 'Entraîneur',
+            coaches: 'Jordan GUIHENEUF',
+            players: '20 joueurs'
         }
     };
     
