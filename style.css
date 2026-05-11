@@ -656,6 +656,10 @@ section h2::after {
     padding: 18px;
 }
 
+.document-panel-fit {
+    padding: 8px;
+}
+
 .organigramme-image {
     display: block;
     width: 100%;
@@ -666,8 +670,8 @@ section h2::after {
 .organigramme-pdf {
     display: block;
     width: 100%;
-    height: min(78vh, 900px);
-    min-height: 620px;
+    height: min(86vh, 980px);
+    min-height: 720px;
     border: 0;
 }
 
