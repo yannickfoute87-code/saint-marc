@@ -300,7 +300,7 @@ function loadPoleGallery() {
     const title = document.getElementById('poleTitle');
     const seniorDetails = {
         coachLabel: 'Entraîneurs',
-        coaches: 'RENAUD LE QUILLIEC, ROMAIN GOUREAU, NICOLAS FRASLIN et IBRAHILA FALL',
+        coaches: 'RENAUD LE QUILLIEC, ROMAIN GOUREAU, NICOLAS FRASLIN et IBRAHIMA FALL',
         players: '84 joueurs'
     };
     const poleDetails = {
@@ -322,7 +322,7 @@ function loadPoleGallery() {
         },
         'senior-d': {
             coachLabel: 'Entraîneur',
-            coaches: 'IBRAHILA FALL',
+            coaches: 'IBRAHIMA FALL',
             players: '21 joueurs'
         }
     };
