@@ -299,15 +299,32 @@ function loadPoleGallery() {
     const gallery = document.getElementById('photoGallery');
     const title = document.getElementById('poleTitle');
     const seniorDetails = {
+        coachLabel: 'Entraîneurs',
         coaches: 'RENAUD LE QUILLIEC, ROMAIN GOUREAU, NICOLAS FRASLIN et IBRAHILA FALL',
         players: '84 joueurs'
     };
     const poleDetails = {
         senior: seniorDetails,
-        'senior-a': seniorDetails,
-        'senior-b': seniorDetails,
-        'senior-c': seniorDetails,
-        'senior-d': seniorDetails
+        'senior-a': {
+            coachLabel: 'Entraîneur',
+            coaches: 'RENAUD LE QUILLIEC',
+            players: '21 joueurs'
+        },
+        'senior-b': {
+            coachLabel: 'Entraîneur',
+            coaches: 'ROMAIN GOUREAU',
+            players: '21 joueurs'
+        },
+        'senior-c': {
+            coachLabel: 'Entraîneur',
+            coaches: 'NICOLAS FRASLIN',
+            players: '21 joueurs'
+        },
+        'senior-d': {
+            coachLabel: 'Entraîneur',
+            coaches: 'IBRAHILA FALL',
+            players: '21 joueurs'
+        }
     };
     
     if (poleData) {
@@ -319,7 +336,7 @@ function loadPoleGallery() {
             const infoCard = document.createElement('div');
             infoCard.className = 'pole-info-card';
             infoCard.innerHTML = `
-                <p><strong>Entraîneurs:</strong> ${details.coaches}</p>
+                <p><strong>${details.coachLabel}:</strong> ${details.coaches}</p>
                 <p><strong>Effectif:</strong> ${details.players}</p>
             `;
             gallery.appendChild(infoCard);
