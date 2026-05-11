@@ -41,13 +41,13 @@ body {
 /* ============= TOP BAR ============= */
 .top-bar {
     background: var(--primary-dark);
-    color: rgba(255,255,255,0.9);
+    color: rgba(255,255,255,0.85);
 }
 
 .top-bar-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 8px 20px;
+    padding: 5px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -58,16 +58,16 @@ body {
 .top-bar-contact {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 18px;
     flex-wrap: wrap;
 }
 
 .top-bar a,
 .top-bar span {
-    color: rgba(255,255,255,0.9);
+    color: rgba(255,255,255,0.85);
     text-decoration: none;
-    font-size: 12px;
-    letter-spacing: 0.04em;
+    font-size: 11px;
+    letter-spacing: 0.03em;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -76,14 +76,13 @@ body {
 
 .top-bar a:hover {
     color: var(--white);
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    opacity: 1;
 }
 
 /* ============= HEADER ============= */
 header {
     background: var(--white);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 8px rgba(0,61,165,0.08);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -96,47 +95,47 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 80px;
+    min-height: 60px;
 }
 
 .header-left {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
 }
 
 .logo-left {
-    width: 52px;
-    height: 52px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--primary-color);
+    border: 2px solid var(--primary-color);
     transition: var(--transition);
 }
 
 .logo-left:hover {
-    transform: rotate(10deg) scale(1.05);
+    transform: rotate(8deg) scale(1.04);
 }
 
 .club-info h1 {
     color: var(--primary-color);
-    font-size: 19px;
+    font-size: 17px;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.1;
 }
 
 .club-info p {
     color: var(--text-muted);
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
 }
 
 .header-right {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
 }
 
 /* ============= NAVIGATION ============= */
@@ -146,17 +145,17 @@ nav > ul {
     gap: 0;
     align-items: stretch;
     background: var(--white);
-    border: 2px solid rgba(0,61,165,0.16);
-    border-radius: var(--radius-xl);
+    border: 1.5px solid rgba(0,61,165,0.12);
+    border-radius: var(--radius-lg);
     overflow: visible;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 nav a {
     text-decoration: none;
     color: var(--primary-color);
     font-weight: 600;
-    font-size: 13px;
+    font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.03em;
     transition: var(--transition);
@@ -165,13 +164,13 @@ nav a {
 nav > ul > li > a {
     display: flex;
     align-items: center;
-    min-height: 72px;
-    padding: 0 22px;
+    min-height: 54px;
+    padding: 0 18px;
     white-space: nowrap;
 }
 
-nav > ul > li:first-child > a { border-radius: 22px 0 0 22px; }
-nav > ul > li:last-child > a { border-radius: 0 22px 22px 0; }
+nav > ul > li:first-child > a { border-radius: 18px 0 0 18px; }
+nav > ul > li:last-child > a { border-radius: 0 18px 18px 0; }
 
 nav > ul > li:hover > a,
 nav > ul > li:hover > .nav-link-with-arrow {
@@ -181,8 +180,8 @@ nav > ul > li:hover > .nav-link-with-arrow {
 
 .nav-link-with-arrow::after {
     content: "▼";
-    margin-left: 6px;
-    font-size: 12px;
+    margin-left: 5px;
+    font-size: 10px;
     transition: var(--transition);
 }
 
@@ -817,9 +816,9 @@ form textarea {
 
 /* ============= FOOTER ============= */
 footer {
-    background: linear-gradient(135deg, var(--primary-dark), #001b52);
-    color: rgba(255,255,255,0.85);
-    padding: 60px 20px 24px;
+    background: linear-gradient(135deg, var(--primary-dark), #001845);
+    color: rgba(255,255,255,0.8);
+    padding: 45px 20px 18px;
     margin-top: 0;
 }
 
@@ -827,36 +826,37 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 40px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+    margin-bottom: 24px;
 }
 
 .footer-section h4 {
     color: var(--white);
-    margin-bottom: 18px;
-    font-size: 14px;
+    margin-bottom: 14px;
+    font-size: 12px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
 }
 
-.footer-section p { font-size: 14px; line-height: 1.8; }
+.footer-section p { font-size: 13px; line-height: 1.7; }
 .footer-section ul { list-style: none; }
 
-.footer-section ul li { margin-bottom: 10px; }
+.footer-section ul li { margin-bottom: 8px; }
 
 .footer-section a {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.75);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     transition: var(--transition);
 }
 
-.footer-section a:hover { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
+.footer-section a:hover { color: var(--white); opacity: 1; }
 
 .social-links {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
 }
 
@@ -864,27 +864,27 @@ footer {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 9px 16px;
+    padding: 7px 14px;
     border-radius: var(--radius-sm);
     text-decoration: none;
     color: white;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 11px;
     transition: var(--transition);
 }
 
-.social-btn:hover { transform: translateY(-3px); opacity: 0.9; }
+.social-btn:hover { transform: translateY(-2px); opacity: 0.9; }
 .facebook-btn { background: #1877F2; }
 .instagram-btn { background: linear-gradient(135deg, #F58529 0%, #DD2A7B 50%, #8134AF 100%); }
 .linkedin-btn { background: #0A66C2; }
 
 .footer-bottom {
     text-align: center;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.4);
-    font-size: 13px;
-}
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+}}
 
 /* ============= SECTION ACCENT ============= */
 .section-accent {
