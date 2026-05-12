@@ -5,14 +5,30 @@
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger-menu');
     const navMenu = document.querySelector('nav > ul');
+    const nav = document.querySelector('nav');
 
     if (hamburger && navMenu) {
         hamburger.setAttribute('aria-expanded', 'false');
 
-        hamburger.addEventListener('click', function() {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
             navMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
             hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active') ? 'true' : 'false');
+        });
+
+        // Fermer le menu en cliquant en dehors (mobile)
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 900) {
+                if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                        document.querySelectorAll('.dropdown-menu-item').forEach(item => item.classList.remove('active'));
+                    }
+                }
+            }
         });
 
         const dropdownItems = document.querySelectorAll('.dropdown-menu-item');
