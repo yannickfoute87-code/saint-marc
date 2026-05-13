@@ -1013,6 +1013,46 @@ form textarea {
     letter-spacing: 0.08em;
 }
 
+/* ============= CHARTES DU CLUB ============= */
+.charter-section {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid var(--gray-100);
+}
+
+.charter-section:last-of-type {
+    border-bottom: none;
+}
+
+.charter-section h3 {
+    color: var(--primary);
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.charter-section p {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.pdf-viewer {
+    background: var(--white);
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 16px;
+    min-height: 600px;
+    box-shadow: var(--shadow-sm);
+}
+
+.pdf-viewer iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    border-radius: var(--radius-lg);
+}
+
 /* ============= PARTENAIRES ============= */
 .partners-main-grid {
     display: grid;
