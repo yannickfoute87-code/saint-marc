@@ -103,6 +103,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Carousel duplicate for infinite scroll
     initializeCarouselLoop();
 
+    // Document tabs on chartes page
+    initializeDocumentTabs();
+
     // Load pole gallery on equipes page
     if (document.getElementById('poleGallery')) {
         loadPoleGallery();
@@ -169,6 +172,34 @@ function initializeCarouselLoop() {
     images.forEach(img => {
         const clone = img.cloneNode(true);
         track.appendChild(clone);
+    });
+}
+
+function initializeDocumentTabs() {
+    const tabs = document.querySelectorAll('.doc-tab');
+    const panels = document.querySelectorAll('.doc-panel');
+
+    if (!tabs.length || !panels.length) return;
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const targetId = tab.getAttribute('data-doc');
+            const targetPanel = document.getElementById(targetId);
+
+            if (!targetPanel) return;
+
+            tabs.forEach(item => {
+                const isActive = item === tab;
+                item.classList.toggle('active', isActive);
+                item.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            });
+
+            panels.forEach(panel => {
+                const isActive = panel === targetPanel;
+                panel.classList.toggle('active', isActive);
+                panel.toggleAttribute('hidden', !isActive);
+            });
+        });
     });
 }
 
@@ -329,6 +360,7 @@ function loadPoleGallery() {
     const poleData = age && agePhotos[age] ? agePhotos[age] : polePhotos[poleKey];
     const gallery = document.getElementById('photoGallery');
     const title = document.getElementById('poleTitle');
+    const detailKey = pole && age ? `${pole}-${age}` : poleKey;
     const seniorDetails = {
         coachLabel: 'Entraîneurs',
         coaches: 'RENAUD LE QUILLIEC, ROMAIN GOUREAU, NICOLAS FRASLIN et IBRAHIMA FALL',
@@ -390,6 +422,76 @@ function loadPoleGallery() {
             coachLabel: 'Entraîneur',
             coaches: 'Jordan GUIHENEUF',
             players: '20 joueurs'
+        },
+        preformation: {
+            coachLabel: 'Entraîneurs',
+            coaches: 'Nutcho GOMES SA, Romains ALIX',
+            players: '110 joueurs'
+        },
+        'preformation-u15': {
+            coachLabel: 'Entraîneur',
+            coaches: 'Nutcho GOMES SA',
+            players: '38 joueurs'
+        },
+        'preformation-u14': {
+            coachLabel: 'Entraîneur',
+            coaches: 'Nutcho GOMES SA',
+            players: '20 joueurs'
+        },
+        'preformation-u13a': {
+            coachLabel: 'Entraîneur',
+            coaches: 'Romains ALIX',
+            players: '22 joueurs'
+        },
+        'preformation-u12': {
+            coachLabel: 'Entraîneur',
+            coaches: 'Romains ALIX',
+            players: '30 joueurs'
+        },
+        'ecole-foot': {
+            coachLabel: 'Entraîneurs',
+            coaches: 'Daren CHEVALIER, Kenny MORICEAU, Benoit MICHEL',
+            players: '86 joueurs'
+        },
+        'ecole-foot-u11': {
+            coachLabel: 'Entraîneur',
+            coaches: 'Daren CHEVALIER',
+            players: 'Effectif à confirmer'
+        },
+        'ecole-foot-u10': {
+            coachLabel: 'Entraîneur',
+            coaches: 'Daren CHEVALIER',
+            players: '21 joueurs'
+        },
+        'ecole-foot-u9': {
+            coachLabel: 'Entraîneur',
+            coaches: 'Kenny MORICEAU',
+            players: '20 joueurs'
+        },
+        'ecole-foot-u8': {
+            coachLabel: 'Entraîneur',
+            coaches: 'Kenny MORICEAU',
+            players: 'Effectif à confirmer'
+        },
+        'ecole-foot-u7': {
+            coachLabel: 'Entraîneur',
+            coaches: 'Benoit MICHEL',
+            players: '15 joueurs'
+        },
+        'ecole-foot-u6': {
+            coachLabel: 'Entraîneur',
+            coaches: 'Benoit MICHEL',
+            players: '10 joueurs'
+        },
+        feminin: {
+            coachLabel: 'Entraîneurs',
+            coaches: 'Jean Christophe, Rasolomanana',
+            players: '15 joueuses'
+        },
+        'feminin-u14f_u15f': {
+            coachLabel: 'Entraîneurs',
+            coaches: 'Jean Christophe, Rasolomanana',
+            players: '15 joueuses'
         }
     };
     
@@ -397,7 +499,7 @@ function loadPoleGallery() {
         title.textContent = poleData.title;
         gallery.innerHTML = '';
 
-        const details = poleDetails[poleKey];
+        const details = poleDetails[detailKey] || poleDetails[poleKey] || poleDetails[age];
         if (details) {
             const infoCard = document.createElement('div');
             infoCard.className = 'pole-info-card';

@@ -143,37 +143,74 @@
     <!-- CONTENU PRINCIPAL -->
     <div class="container">
         <section>
-            <h2>Chartes et Réglements du Club</h2>
-            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 40px;">Consultez ci-dessous les documents officiels du club</p>
+            <h2>Chartes et Règlements du Club</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 36px;">Consultez ci-dessous les documents officiels du club</p>
             
-            <!-- CHARTE JOUEURS -->
-            <div class="charter-section">
-                <h3>📋 Charte des Joueurs</h3>
-                <p>La charte des joueurs seniors définit les règles, les attentes et les valeurs que chaque joueur doit respecter.</p>
-                <div class="pdf-viewer">
-                    <embed src="photo/Charte joueur senior.pdf" type="application/pdf">
+            <!-- DOCUMENTS TABS -->
+            <div class="documents-container">
+                <!-- TABS NAVIGATION -->
+                <div class="documents-tabs">
+                    <button class="doc-tab active" type="button" data-doc="joueurs">
+                        <span class="doc-icon">01</span>
+                        <span class="doc-label">Charte des Joueurs</span>
+                    </button>
+                    <button class="doc-tab" type="button" data-doc="parents">
+                        <span class="doc-icon">02</span>
+                        <span class="doc-label">Charte des Parents</span>
+                    </button>
+                    <button class="doc-tab" type="button" data-doc="reglement">
+                        <span class="doc-icon">03</span>
+                        <span class="doc-label">Règlement Intérieur</span>
+                    </button>
                 </div>
-                <a href="photo/Charte joueur senior.pdf" download class="btn" style="display: inline-block; margin-top: 16px;">⬇️ Télécharger</a>
-            </div>
 
-            <!-- CHARTE PARENTS -->
-            <div class="charter-section">
-                <h3>👨‍👩‍👧‍👦 Charte des Parents</h3>
-                <p>La charte des parents établit les principes et responsabilités des familles au sein du club.</p>
-                <div class="pdf-viewer">
-                    <embed src="photo/Charte parents.pdf" type="application/pdf">
-                </div>
-                <a href="photo/Charte parents.pdf" download class="btn" style="display: inline-block; margin-top: 16px;">⬇️ Télécharger</a>
-            </div>
+                <!-- DOCUMENTS CONTENT -->
+                <div class="documents-content">
+                    <!-- CHARTE JOUEURS -->
+                    <div class="doc-panel active" id="joueurs">
+                        <div class="doc-header">
+                            <h3>Charte des Joueurs</h3>
+                            <p>La charte des joueurs seniors définit les règles, les attentes et les valeurs que chaque joueur doit respecter au sein du club Saint Marc Football.</p>
+                        </div>
+                        <div class="pdf-viewer">
+                            <embed src="photo/Charte joueur senior.pdf" type="application/pdf">
+                        </div>
+                        <div class="doc-footer">
+                            <a href="photo/Charte joueur senior.pdf" target="_blank" rel="noopener" class="btn btn-outline">Ouvrir</a>
+                            <a href="photo/Charte joueur senior.pdf" download class="btn btn-secondary">Télécharger le PDF</a>
+                        </div>
+                    </div>
 
-            <!-- REGLEMENT INTERIEUR -->
-            <div class="charter-section">
-                <h3>⚖️ Réglement Intérieur</h3>
-                <p>Le réglement intérieur du club qui s'applique à tous les membres et encadrants.</p>
-                <div class="pdf-viewer">
-                    <embed src="photo/REĖGLEMENT INT.pdf" type="application/pdf">
+                    <!-- CHARTE PARENTS -->
+                    <div class="doc-panel" id="parents">
+                        <div class="doc-header">
+                            <h3>Charte des Parents</h3>
+                            <p>La charte des parents établit les principes et responsabilités des familles au sein du club pour soutenir le développement de nos jeunes joueurs.</p>
+                        </div>
+                        <div class="pdf-viewer">
+                            <embed src="photo/Charte parents.pdf" type="application/pdf">
+                        </div>
+                        <div class="doc-footer">
+                            <a href="photo/Charte parents.pdf" target="_blank" rel="noopener" class="btn btn-outline">Ouvrir</a>
+                            <a href="photo/Charte parents.pdf" download class="btn btn-secondary">Télécharger le PDF</a>
+                        </div>
+                    </div>
+
+                    <!-- REGLEMENT INTERIEUR -->
+                    <div class="doc-panel" id="reglement">
+                        <div class="doc-header">
+                            <h3>Règlement Intérieur</h3>
+                            <p>Le règlement intérieur du club qui s'applique à tous les membres, encadrants et partenaires de Saint Marc Football.</p>
+                        </div>
+                        <div class="pdf-viewer">
+                            <embed src="photo/REĖGLEMENT INT.pdf" type="application/pdf">
+                        </div>
+                        <div class="doc-footer">
+                            <a href="photo/REĖGLEMENT INT.pdf" target="_blank" rel="noopener" class="btn btn-outline">Ouvrir</a>
+                            <a href="photo/REĖGLEMENT INT.pdf" download class="btn btn-secondary">Télécharger le PDF</a>
+                        </div>
+                    </div>
                 </div>
-                <a href="photo/REĖGLEMENT INT.pdf" download class="btn" style="display: inline-block; margin-top: 16px;">⬇️ Télécharger</a>
             </div>
         </section>
 
@@ -184,7 +221,7 @@
 
         <section style="text-align: center;">
             <h2>Questions?</h2>
-            <p>Pour plus d'informations sur nos chartes et réglements, contactez-nous!</p>
+            <p>Pour plus d'informations sur nos chartes et règlements, contactez-nous!</p>
             <a href="contact.html" class="btn">Nous Contacter</a>
         </section>
     </div>
