@@ -228,23 +228,52 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=partners-carousel-20260513"></script>
     <script>
-        // Animation du carrousel pour les partenaires
+        // Carrousel infini - Partenaires
         document.addEventListener('DOMContentLoaded', function() {
             const carousel = document.getElementById('partnersCarousel');
-            if (carousel) {
-                let offset = 0;
-                const animateCarousel = () => {
-                    offset -= 1;
-                    carousel.style.transform = `translateX(${offset}px)`;
-                    if (offset < -carousel.offsetWidth / 2) {
-                        offset = 0;
+            if (!carousel) return;
+
+            // Obtenir la largeur totale du contenu une fois
+            const getCarouselWidth = () => {
+                const images = carousel.querySelectorAll('img');
+                if (images.length === 0) return 0;
+                const firstImg = images[0];
+                const gap = 24; // même que gap CSS
+                const totalWidth = (images.length / 2) * (firstImg.offsetWidth + gap);
+                return totalWidth;
+            };
+
+            let carouselWidth = 0;
+            let offset = 0;
+            const speed = 0.5; // pixels par frame
+            
+            // Attendre que les images se chargent
+            const imgs = carousel.querySelectorAll('img');
+            let loadedCount = 0;
+            imgs.forEach(img => {
+                img.onload = () => {
+                    loadedCount++;
+                    if (loadedCount === imgs.length) {
+                        carouselWidth = getCarouselWidth();
                     }
-                    requestAnimationFrame(animateCarousel);
                 };
-                animateCarousel();
-            }
+            });
+
+            const animate = () => {
+                offset -= speed;
+                carousel.style.transform = `translateX(${offset}px)`;
+                
+                // Réinitialiser quand on a scrollé la moitié
+                if (Math.abs(offset) >= carouselWidth) {
+                    offset = 0;
+                }
+                
+                requestAnimationFrame(animate);
+            };
+
+            animate();
         });
     </script></body>
 </html>

@@ -813,6 +813,109 @@ form textarea {
     min-height: 140px;
 }
 
+/* ============= ÉQUIPES - DÉTAILS ============= */
+.pole-info-card {
+    background: linear-gradient(135deg, var(--primary-ultra-light) 0%, rgba(26, 94, 201, 0.03) 100%);
+    border-left: 5px solid var(--primary);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    margin-bottom: 32px;
+    box-shadow: 0 2px 8px rgba(0, 61, 165, 0.1);
+}
+
+.pole-info-card p {
+    margin-bottom: 12px;
+    color: var(--text-primary);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.pole-info-card p:last-child {
+    margin-bottom: 0;
+}
+
+.pole-info-card strong {
+    color: var(--primary-dark);
+    font-weight: 700;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.photo-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    aspect-ratio: 1;
+    cursor: pointer;
+}
+
+.photo-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.photo-card:hover img {
+    transform: scale(1.08);
+}
+
+.photo-category {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 32, 96, 0.95), transparent);
+    color: white;
+    padding: 16px 12px 12px;
+    font-weight: 700;
+    font-size: 13px;
+    text-align: center;
+    z-index: 10;
+    letter-spacing: 0.3px;
+}
+
+.photo-card-large {
+    grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+    .photo-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .photo-card-large {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .photo-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .photo-card-large {
+        grid-column: span 1;
+    }
+    
+    .pole-info-card {
+        padding: 16px;
+        margin-bottom: 24px;
+    }
+}
+
 /* ============= PHOTO GALLERY ============= */
 .photo-gallery {
     display: grid;
@@ -1015,42 +1118,53 @@ form textarea {
 
 /* ============= CHARTES DU CLUB ============= */
 .charter-section {
-    margin-bottom: 48px;
-    padding-bottom: 32px;
+    margin-bottom: 52px;
+    padding-bottom: 40px;
     border-bottom: 2px solid var(--gray-100);
 }
 
 .charter-section:last-of-type {
     border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .charter-section h3 {
     color: var(--primary);
-    margin-bottom: 12px;
-    font-size: 20px;
+    margin-bottom: 14px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
 }
 
 .charter-section p {
     color: var(--text-secondary);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     font-size: 14px;
+    line-height: 1.6;
 }
 
 .pdf-viewer {
-    background: var(--white);
+    background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
     border: 2px solid var(--gray-200);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    margin-bottom: 16px;
-    min-height: 600px;
-    box-shadow: var(--shadow-sm);
+    margin-bottom: 18px;
+    min-height: 550px;
+    box-shadow: 0 4px 12px rgba(0, 61, 165, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.pdf-viewer iframe {
+.pdf-viewer embed {
     width: 100%;
-    height: 600px;
+    height: 550px;
     border: none;
-    border-radius: var(--radius-lg);
+}
+
+.pdf-viewer:hover {
+    box-shadow: 0 6px 20px rgba(0, 61, 165, 0.12);
 }
 
 /* ============= PARTENAIRES ============= */
@@ -1096,31 +1210,60 @@ form textarea {
 
 /* Carrousel de partenaires */
 .carousel-section {
-    margin: 40px 0;
+    margin: 48px 0;
     overflow: hidden;
-    background: linear-gradient(90deg, rgba(240,245,255,0.5) 0%, transparent 15%, transparent 85%, rgba(240,245,255,0.5) 100%);
-    padding: 28px 0;
+    background: linear-gradient(90deg, rgba(240,245,255,0.6) 0%, transparent 10%, transparent 90%, rgba(240,245,255,0.6) 100%);
+    padding: 32px 0;
     border-radius: var(--radius-lg);
+    position: relative;
 }
 
 .carousel-track {
     display: flex;
-    gap: 24px;
+    gap: 32px;
     width: max-content;
+    padding: 0 20px;
+    will-change: transform;
 }
 
 .carousel-track img {
-    height: 80px;
+    height: 90px;
     width: auto;
     object-fit: contain;
     flex-shrink: 0;
-    opacity: 0.8;
-    transition: var(--transition);
+    opacity: 0.75;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    filter: grayscale(0%);
 }
 
 .carousel-track img:hover {
     opacity: 1;
-    transform: scale(1.08);
+    transform: scale(1.1) translateY(-3px);
+    filter: grayscale(0%);
+}
+
+.carousel-section::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    background: linear-gradient(90deg, var(--white) 0%, transparent 100%);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.carousel-section::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    background: linear-gradient(90deg, transparent 0%, var(--white) 100%);
+    z-index: 10;
+    pointer-events: none;
 }
 
 /* ============= SECTION ACCENT ============= */
@@ -1536,11 +1679,52 @@ footer {
 
     .carousel-section {
         padding: 16px 0;
+        margin: 32px 0;
+    }
+
+    .carousel-track {
+        gap: 24px;
+        padding: 0 16px;
     }
 
     .carousel-track img {
         height: 60px;
     }
+
+    .charter-section {
+        margin-bottom: 32px;
+        padding-bottom: 24px;
+    }
+
+    .charter-section h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .charter-section p {
+        font-size: 13px;
+        margin-bottom: 16px;
+    }
+
+    .pdf-viewer {
+        min-height: 400px;
+        margin-bottom: 12px;
+    }
+
+    .pdf-viewer embed {
+        height: 400px;
+    }
+
+    .pole-info-card {
+        padding: 14px;
+        margin-bottom: 20px;
+    }
+
+    .pole-info-card p {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
     .top-bar a,
     .top-bar span {
         font-size: 11px;
