@@ -233,6 +233,13 @@ function loadPoleGallery() {
         'U10_U11.JPG': 'U10/U11',
         'U11.JPG': 'U11'
     };
+
+    const seniorTeamLinks = {
+        'Seniors A.JPG': 'equipes.html?pole=senior&team=a',
+        'Seniors B.JPG': 'equipes.html?pole=senior&team=b',
+        'Seniors C.JPG': 'equipes.html?pole=senior&team=c',
+        'senior d.jpeg': 'equipes.html?pole=senior&team=d'
+    };
     
     // Define photos for each pole
     const polePhotos = {
@@ -516,21 +523,16 @@ function loadPoleGallery() {
                 <div class="info-details">
                     <p><strong>${details.coachLabel}:</strong> ${details.coaches}</p>
                     <p><strong>Effectif:</strong> ${details.players}</p>
+                    ${details.matchLink ? `
+                        <p class="competition-link">
+                            <strong>Compétition:</strong>
+                            <a href="${details.matchLink}" target="_blank" rel="noopener">
+                                ${details.matchLinkLabel}
+                            </a>
+                        </p>
+                    ` : ''}
                 </div>
             `;
-            
-            // Add ranking button section if available
-            if (details.matchLink) {
-                infoHTML += `
-                    <div class="ranking-section">
-                        <a href="${details.matchLink}" target="_blank" class="ranking-btn">
-                            <span class="ranking-icon">🏆</span>
-                            <span class="ranking-text">${details.matchLinkLabel}</span>
-                            <span class="ranking-arrow">→</span>
-                        </a>
-                    </div>
-                `;
-            }
             
             infoCard.innerHTML = infoHTML;
             gallery.appendChild(infoCard);
@@ -546,10 +548,22 @@ function loadPoleGallery() {
             const category = poleKey === 'senior-d' || (poleKey === 'senior' && index === 3)
                 ? 'Seniors D'
                 : photoCategories[photo] || 'Photo';
-            card.innerHTML = `
-                <div class="photo-category">${category}</div>
-                <img src="photo/${photo}" alt="${photo}" loading="lazy">
-            `;
+            const teamLink = poleKey === 'senior' ? seniorTeamLinks[photo] : null;
+
+            if (teamLink) {
+                card.classList.add('photo-card-clickable');
+                card.innerHTML = `
+                    <a class="photo-card-link" href="${teamLink}" aria-label="Voir ${category}">
+                        <div class="photo-category">${category}</div>
+                        <img src="photo/${photo}" alt="${photo}" loading="lazy">
+                    </a>
+                `;
+            } else {
+                card.innerHTML = `
+                    <div class="photo-category">${category}</div>
+                    <img src="photo/${photo}" alt="${photo}" loading="lazy">
+                `;
+            }
             gallery.appendChild(card);
         });
     } else if (pole) {

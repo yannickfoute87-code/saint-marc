@@ -969,6 +969,25 @@ form textarea {
     font-weight: 700;
 }
 
+.competition-link {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.competition-link a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    transition: var(--transition);
+}
+
+.competition-link a:hover {
+    color: var(--primary-dark);
+}
+
 .photo-card {
     position: relative;
     overflow: hidden;
@@ -978,6 +997,19 @@ form textarea {
     cursor: pointer;
     background: var(--gray-900);
     animation: photoFadeIn 0.6s ease-out;
+}
+
+.photo-card-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+.photo-card-clickable:focus-within {
+    outline: 3px solid var(--primary);
+    outline-offset: 4px;
 }
 }
 
