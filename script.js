@@ -372,7 +372,9 @@ function loadPoleGallery() {
         'senior-a': {
             coachLabel: 'Entraîneur',
             coaches: 'RENAUD LE QUILLIEC',
-            players: '21 joueurs'
+            players: '21 joueurs',
+            matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_SEM_1/equipe',
+            matchLinkLabel: 'Voir le classement et les matchs'
         },
         'senior-b': {
             coachLabel: 'Entraîneur',
@@ -504,10 +506,24 @@ function loadPoleGallery() {
         if (details) {
             const infoCard = document.createElement('div');
             infoCard.className = 'pole-info-card';
-            infoCard.innerHTML = `
+            let infoHTML = `
                 <p><strong>${details.coachLabel}:</strong> ${details.coaches}</p>
                 <p><strong>Effectif:</strong> ${details.players}</p>
             `;
+            
+            // Add match link button if available
+            if (details.matchLink) {
+                infoHTML += `
+                    <div style="margin-top: 20px;">
+                        <a href="${details.matchLink}" target="_blank" class="btn" style="display: inline-block; gap: 8px;">
+                            <span>🏆</span>
+                            ${details.matchLinkLabel}
+                        </a>
+                    </div>
+                `;
+            }
+            
+            infoCard.innerHTML = infoHTML;
             gallery.appendChild(infoCard);
         }
         
