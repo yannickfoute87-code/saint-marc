@@ -379,17 +379,23 @@ function loadPoleGallery() {
         'senior-b': {
             coachLabel: 'Entraîneur',
             coaches: 'ROMAIN GOUREAU',
-            players: '21 joueurs'
+            players: '21 joueurs',
+            matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_SEM_3/classement',
+            matchLinkLabel: 'Voir le classement et les matchs'
         },
         'senior-c': {
             coachLabel: 'Entraîneur',
             coaches: 'NICOLAS FRASLIN',
-            players: '21 joueurs'
+            players: '21 joueurs',
+            matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_SEM_4/classement',
+            matchLinkLabel: 'Voir le classement et les matchs'
         },
         'senior-d': {
             coachLabel: 'Entraîneur',
             coaches: 'IBRAHIMA FALL',
-            players: '21 joueurs'
+            players: '21 joueurs',
+            matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_SEM_6/classement',
+            matchLinkLabel: 'Voir le classement et les matchs'
         },
         formation: {
             coachLabel: 'Entraîneurs',
