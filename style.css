@@ -32,6 +32,7 @@
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     --radius-xs: 4px;
     --radius-sm: 6px;
     --radius-md: 8px;
@@ -48,8 +49,9 @@ html {
 body {
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: var(--text-primary);
-    line-height: 1.6;
+    line-height: 1.7;
     background-color: var(--white);
+    font-size: 15px;
 }
 
 /* ============= TOP BAR ============= */
@@ -607,23 +609,25 @@ nav > ul > li:hover > .nav-link-with-arrow {
 .container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 60px 20px;
+    padding: 80px 20px;
 }
 
-section { margin-bottom: 70px; }
+section { margin-bottom: 90px; }
 
 section h2 {
     color: var(--primary);
-    font-size: 36px;
+    font-size: 38px;
     font-weight: 700;
-    margin-bottom: 40px;
+    margin-bottom: 48px;
     text-align: center;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
     animation: fadeInUp 0.7s ease-out;
+    letter-spacing: -0.5px;
+}
 }
 
 section h2::after {
@@ -651,13 +655,14 @@ section h2::after {
 .card {
     background: var(--white);
     border-radius: var(--radius-lg);
-    padding: 32px;
-    box-shadow: var(--shadow-md);
+    padding: 36px;
+    box-shadow: 0 4px 12px rgba(0, 61, 165, 0.1);
     border: 1px solid var(--gray-200);
     transition: var(--transition);
     position: relative;
     overflow: hidden;
     animation: cardFadeIn 0.6s ease-out;
+}
 }
 
 @keyframes cardFadeIn {
@@ -679,9 +684,10 @@ section h2::after {
 }
 
 .card:hover {
-    transform: translateY(-12px) scale(1.01);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--gray-300);
+    transform: translateY(-14px) scale(1.02);
+    box-shadow: 0 16px 36px rgba(0, 61, 165, 0.2);
+    border-color: var(--primary-light);
+}
 }
 
 .card:hover::before { 
@@ -690,15 +696,18 @@ section h2::after {
 
 .card h3 {
     color: var(--primary);
-    font-size: 20px;
-    margin-bottom: 14px;
+    font-size: 21px;
+    margin-bottom: 16px;
     font-weight: 700;
+    letter-spacing: -0.3px;
+}
 }
 
 .card p {
     color: var(--text-secondary);
-    line-height: 1.8;
+    line-height: 1.9;
     font-size: 15px;
+}
 }
 
 /* ============= BUTTONS ============= */
@@ -707,20 +716,22 @@ section h2::after {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 12px 28px;
+    padding: 13px 30px;
     background: linear-gradient(135deg, var(--primary), var(--primary-light));
     color: white;
     text-decoration: none;
     border-radius: var(--radius-lg);
     border: 2px solid transparent;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 14px;
     font-family: 'Poppins', sans-serif;
     transition: var(--transition);
     white-space: nowrap;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 61, 165, 0.25);
+}
 }
 
 .btn::before {
@@ -735,8 +746,9 @@ section h2::after {
 }
 
 .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 61, 165, 0.35);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 61, 165, 0.4);
+}
 }
 
 .btn:hover::before {
@@ -824,10 +836,11 @@ form textarea {
 }
 
 .pole-info-card p {
-    margin-bottom: 12px;
-    color: var(--text-primary);
+    color: var(--text-secondary);
     font-size: 15px;
-    line-height: 1.6;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
 }
 
 .pole-info-card p:last-child {
@@ -920,18 +933,20 @@ form textarea {
 .photo-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 24px;
-    margin: 36px 0;
+    gap: 28px;
+    margin: 40px 0 60px;
+}
 }
 
 .pole-info-card {
     grid-column: 1 / -1;
-    background: linear-gradient(135deg, var(--primary-ultra-light), var(--white));
-    border: 2px solid var(--gray-200);
+    background: linear-gradient(135deg, var(--primary-ultra-light) 0%, rgba(26, 94, 201, 0.05) 100%);
+    border: 2px solid var(--primary-light);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    padding: 28px;
+    box-shadow: 0 4px 12px rgba(0, 61, 165, 0.12);
+    padding: 32px;
     animation: infoCardSlideIn 0.6s ease-out;
+}
 }
 
 @keyframes infoCardSlideIn {
@@ -957,12 +972,13 @@ form textarea {
 .photo-card {
     position: relative;
     overflow: hidden;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 4px 12px rgba(0, 61, 165, 0.15);
     transition: var(--transition);
     cursor: pointer;
     background: var(--gray-900);
     animation: photoFadeIn 0.6s ease-out;
+}
 }
 
 @keyframes photoFadeIn {
@@ -971,8 +987,9 @@ form textarea {
 }
 
 .photo-card:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-14px) scale(1.04);
+    box-shadow: 0 16px 36px rgba(0, 61, 165, 0.25);
+}
 }
 
 .photo-category {
@@ -997,14 +1014,15 @@ form textarea {
 
 .photo-card img {
     width: 100%;
-    height: 280px;
+    height: 300px;
     object-fit: cover;
     display: block;
-    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
 }
 
 .photo-card:hover img { 
-    transform: scale(1.12); 
+    transform: scale(1.15); 
 }
 
 /* ============= ORGANIGRAMMES ============= */

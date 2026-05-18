@@ -217,9 +217,14 @@
 
         .photo-card img {
             width: 100%;
-            height: 200px;
+            height: 300px;
             object-fit: cover;
             display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-card img:hover {
+            transform: scale(1.05);
         }
 
         .success {
@@ -376,7 +381,7 @@
 
         function loadCoachPhotos(pole, team) {
             const polePhotos = {
-                senior: ['Seniors A.JPG', 'Seniors B.JPG', 'Seniors C.JPG'],
+                senior: ['Seniors A.JPG', 'Seniors B.JPG', 'Seniors C.JPG', 'senior d.jpeg'],
                 'senior-a': ['Seniors A.JPG'],
                 'senior-b': ['Seniors B.JPG'],
                 'senior-c': ['Seniors C.JPG'],

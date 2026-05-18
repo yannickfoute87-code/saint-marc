@@ -215,6 +215,7 @@ function loadPoleGallery() {
         'Seniors A.JPG': 'Seniors A',
         'Seniors B.JPG': 'Seniors B',
         'Seniors C.JPG': 'Seniors C',
+        'senior d.jpeg': 'Seniors D',
         'U16.JPG': 'U16',
         'U17.JPG': 'U17',
         'U17_U18.JPG': 'U17/U18',
@@ -237,7 +238,7 @@ function loadPoleGallery() {
     const polePhotos = {
         senior: {
             title: 'Seniors',
-            photos: ['Seniors A.JPG', 'Seniors B.JPG', 'Seniors C.JPG', 'Seniors C.JPG']
+            photos: ['Seniors A.JPG', 'Seniors B.JPG', 'Seniors C.JPG', 'senior d.jpeg']
         },
         'senior-a': {
             title: 'Seniors A',
@@ -253,7 +254,7 @@ function loadPoleGallery() {
         },
         'senior-d': {
             title: 'Seniors D',
-            photos: ['Seniors C.JPG']
+            photos: ['senior d.jpeg']
         },
         formation: {
             title: 'Pôle Formation',
