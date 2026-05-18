@@ -175,12 +175,6 @@
                     <img src="photo/le-centre-affaire__rps58a.jpg" alt="Le Centre Affaires">
                     <img src="photo/moka-boucherie-orientale__rk2b1n.jpg" alt="Moka Boucherie Orientale">
                     <img src="photo/paintmarker-gomis__rps580.jpg" alt="Paintmarker Gomis">
-                    <!-- Duplication pour carrousel infini -->
-                    <img src="photo/synergie__sacurv.jpg" alt="Synergie">
-                    <img src="photo/bk-biere__r33fe1.jpg" alt="BK Bière">
-                    <img src="photo/eiffage__s1jtbl.jpg" alt="Eiffage">
-                    <img src="photo/leclerc__sjjbuk.png" alt="Leclerc">
-                    <img src="photo/logo inter marche.png" alt="Intermarché">
                 </div>
             </div>
         </section>
@@ -235,37 +229,43 @@
             const carousel = document.getElementById('partnersCarousel');
             if (!carousel) return;
 
-            // Obtenir la largeur totale du contenu une fois
-            const getCarouselWidth = () => {
-                const images = carousel.querySelectorAll('img');
-                if (images.length === 0) return 0;
-                const firstImg = images[0];
-                const gap = 24; // même que gap CSS
-                const totalWidth = (images.length / 2) * (firstImg.offsetWidth + gap);
-                return totalWidth;
-            };
+            const originalLogos = Array.from(carousel.querySelectorAll('img'));
+            originalLogos.forEach(logo => {
+                const clone = logo.cloneNode(true);
+                clone.setAttribute('aria-hidden', 'true');
+                carousel.appendChild(clone);
+            });
 
             let carouselWidth = 0;
             let offset = 0;
             const speed = 0.5; // pixels par frame
-            
-            // Attendre que les images se chargent
+
+            const updateCarouselWidth = () => {
+                carouselWidth = carousel.scrollWidth / 2;
+            };
+
             const imgs = carousel.querySelectorAll('img');
-            let loadedCount = 0;
-            imgs.forEach(img => {
-                img.onload = () => {
-                    loadedCount++;
-                    if (loadedCount === imgs.length) {
-                        carouselWidth = getCarouselWidth();
-                    }
-                };
+            const imageLoadPromises = Array.from(imgs).map(img => {
+                if (img.complete) return Promise.resolve();
+                return new Promise(resolve => {
+                    img.addEventListener('load', resolve, { once: true });
+                    img.addEventListener('error', resolve, { once: true });
+                });
             });
 
+            Promise.all(imageLoadPromises).then(updateCarouselWidth);
+            window.addEventListener('resize', updateCarouselWidth);
+            requestAnimationFrame(updateCarouselWidth);
+
             const animate = () => {
+                if (!carouselWidth) {
+                    requestAnimationFrame(animate);
+                    return;
+                }
+
                 offset -= speed;
                 carousel.style.transform = `translateX(${offset}px)`;
                 
-                // Réinitialiser quand on a scrollé la moitié
                 if (Math.abs(offset) >= carouselWidth) {
                     offset = 0;
                 }
