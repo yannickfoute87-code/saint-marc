@@ -374,28 +374,28 @@ function loadPoleGallery() {
             coaches: 'RENAUD LE QUILLIEC',
             players: '21 joueurs',
             matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_SEM_1/equipe',
-            matchLinkLabel: 'Voir le classement et les matchs'
+            matchLinkLabel: 'Classement'
         },
         'senior-b': {
             coachLabel: 'Entraîneur',
             coaches: 'ROMAIN GOUREAU',
             players: '21 joueurs',
             matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_SEM_3/classement',
-            matchLinkLabel: 'Voir le classement et les matchs'
+            matchLinkLabel: 'Classement'
         },
         'senior-c': {
             coachLabel: 'Entraîneur',
             coaches: 'NICOLAS FRASLIN',
             players: '21 joueurs',
             matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_SEM_4/classement',
-            matchLinkLabel: 'Voir le classement et les matchs'
+            matchLinkLabel: 'Classement'
         },
         'senior-d': {
             coachLabel: 'Entraîneur',
             coaches: 'IBRAHIMA FALL',
             players: '21 joueurs',
             matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_SEM_6/classement',
-            matchLinkLabel: 'Voir le classement et les matchs'
+            matchLinkLabel: 'Classement'
         },
         formation: {
             coachLabel: 'Entraîneurs',
@@ -513,17 +513,20 @@ function loadPoleGallery() {
             const infoCard = document.createElement('div');
             infoCard.className = 'pole-info-card';
             let infoHTML = `
-                <p><strong>${details.coachLabel}:</strong> ${details.coaches}</p>
-                <p><strong>Effectif:</strong> ${details.players}</p>
+                <div class="info-details">
+                    <p><strong>${details.coachLabel}:</strong> ${details.coaches}</p>
+                    <p><strong>Effectif:</strong> ${details.players}</p>
+                </div>
             `;
             
-            // Add match link button if available
+            // Add ranking button section if available
             if (details.matchLink) {
                 infoHTML += `
-                    <div style="margin-top: 20px;">
-                        <a href="${details.matchLink}" target="_blank" class="btn" style="display: inline-block; gap: 8px;">
-                            <span>🏆</span>
-                            ${details.matchLinkLabel}
+                    <div class="ranking-section">
+                        <a href="${details.matchLink}" target="_blank" class="ranking-btn">
+                            <span class="ranking-icon">🏆</span>
+                            <span class="ranking-text">${details.matchLinkLabel}</span>
+                            <span class="ranking-arrow">→</span>
                         </a>
                     </div>
                 `;

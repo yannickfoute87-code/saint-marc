@@ -1,0 +1,74 @@
+/* ============= RANKING SECTION ============= */
+.info-details {
+    margin-bottom: 28px;
+}
+
+.ranking-section {
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 2px solid rgba(0, 61, 165, 0.1);
+}
+
+.ranking-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 36px;
+    background: linear-gradient(135deg, #003DA5 0%, #1a5ec9 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    border: none;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 8px 24px rgba(0, 61, 165, 0.35);
+    position: relative;
+    overflow: hidden;
+}
+
+.ranking-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.15), rgba(255,255,255,0));
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.ranking-btn:hover::before {
+    transform: translateX(100%);
+}
+
+.ranking-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 36px rgba(0, 61, 165, 0.5);
+}
+
+.ranking-btn:active {
+    transform: translateY(-2px);
+}
+
+.ranking-icon {
+    font-size: 22px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.ranking-text {
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.ranking-arrow {
+    font-size: 20px;
+    opacity: 0.8;
+    transition: transform 0.3s ease;
+}
+
+.ranking-btn:hover .ranking-arrow {
+    transform: translateX(4px);
+}
