@@ -7,12 +7,25 @@
     <link rel="stylesheet" href="style.css?v=referee-pyramid-20260520">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Override TOUS les styles par défaut du hero */
-        .hero-arbitres {
-            background: url('photo/arbitres.jpeg') center/cover fixed no-repeat !important;
+        /* Forcer un background sur tout */
+        body.arbitres-page {
+            background: none !important;
         }
 
-        .hero-arbitres,
+        /* Override TOUS les styles par défaut du hero et compact-hero */
+        .hero-arbitres {
+            background: url('photo/arbitres.jpeg') center/cover fixed no-repeat !important;
+            background-color: transparent !important;
+            min-height: 400px !important;
+            height: auto !important;
+        }
+
+        .hero-arbitres.compact-hero {
+            background: url('photo/arbitres.jpeg') center/cover fixed no-repeat !important;
+            background-color: transparent !important;
+            min-height: 400px !important;
+        }
+
         .hero-arbitres * {
             background-attachment: fixed !important;
         }
@@ -167,7 +180,7 @@
         }
     </style>
 </head>
-<body>
+<body class="arbitres-page">
     <header>
         <div class="top-bar">
             <div class="top-bar-content">
