@@ -459,8 +459,26 @@ nav > ul > li:hover > .nav-link-with-arrow {
     100% { transform: translateX(-2800vw); }
 }
 
-.carousel-track-bg:hover { 
-    animation-play-state: paused; 
+.carousel-track-bg:hover {
+    animation-play-state: paused;
+}
+
+.compact-hero {
+    min-height: 360px;
+}
+
+.compact-hero .carousel-track-bg {
+    width: 100%;
+    height: 100%;
+    animation: none;
+}
+
+.compact-hero .carousel-track-bg img {
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.85);
 }
 
 .hero-content {
@@ -806,7 +824,7 @@ section h2::after {
 
 .manifestation-card-featured .manifestation-poster {
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .manifestation-content {

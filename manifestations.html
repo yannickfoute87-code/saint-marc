@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saint Marc Football - Organigramme Sportif</title>
+    <title>Calendrier des Manifestations - Saint Marc Football</title>
     <link rel="stylesheet" href="style.css?v=design-update-20260511">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -19,14 +19,14 @@
         </div>
         <div class="header-container">
             <div class="header-left">
-                <img src="photo/logo rond blanc.PNG" alt="Logo Saint Marc Football" class="logo-left">
+                <img src="photo/logo rond blanc.PNG" alt="Logo" class="logo-left">
                 <div class="club-info">
                     <h1>Saint Marc Football</h1>
                     <p>Ensemble pour la victoire</p>
                 </div>
             </div>
             <div class="header-right">
-                <button class="hamburger-menu" aria-label="Ouvrir le menu">
+                <button class="hamburger-menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -48,11 +48,11 @@
                                     <span class="mega-menu-title">A Propos du Club</span>
                                     <ul class="mega-menu-links">
                                         <li><a href="club.html#a-propos-du-club">Notre histoire</a></li>
-                                        <li><a href="comite-directeur.html">Le comité directeur</a></li>
+                                        <li><a href="comite-directeur.html">Le comite directeur</a></li>
                                         <li><a href="organigramme-sportif.html">Organigramme sportif</a></li>
                                         <li><a href="club.html#information-club">Commissions</a></li>
                                         <li><a href="club.html#information-club">Arbitres</a></li>
-                                        <li><a href="club.html#information-club">Charte du club</a></li>
+                                        <li><a href="charte-du-club.html">Chartes du club</a></li>
                                     </ul>
                                 </li>
                                 <li class="mega-menu-column">
@@ -75,22 +75,46 @@
         </div>
     </header>
 
-    <main class="document-page">
-        <div class="document-page-header">
-            <p>Club</p>
-            <h1>Organigramme Sportif</h1>
+    <section class="hero compact-hero">
+        <div class="carousel-background">
+            <div class="carousel-track-bg">
+                <img src="photo/image detection.jpg" alt="Calendrier des manifestations Saint Marc Football">
+            </div>
         </div>
-        <section class="document-panel document-panel-fit" aria-label="Organigramme sportif">
-            <object class="organigramme-pdf" data="photo/Organigramme Sportif.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit&page=1" type="application/pdf">
-                <div class="document-fallback">
-                    <p>Ton navigateur ne peut pas afficher directement ce document.</p>
-                    <a class="btn" href="photo/Organigramme Sportif.pdf#view=Fit&page=1" target="_blank" rel="noopener noreferrer">Ouvrir l'organigramme sportif</a>
-                </div>
-            </object>
+        <div class="hero-content">
+            <h1>Calendrier des Manifestations</h1>
+            <p>Les animations, detections et rendez-vous du club.</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <section>
+            <h2>Manifestations du Club</h2>
+            <div class="manifestation-grid">
+                <article class="manifestation-card manifestation-card-featured">
+                    <img src="photo/image detection.jpg" alt="Affiche des detections saison 2026-2027" class="manifestation-poster">
+                    <div class="manifestation-content">
+                        <p class="manifestation-label">Detection</p>
+                        <h3>Saison 2026/2027</h3>
+                        <p>La nouvelle saison se prépare dès maintenant... et c'est peut-être TON moment !</p>
+                        <p>Nous ouvrons officiellement les détections pour la saison à venir. Que tu sois déjà joueur/joueuse ou prêt(e) à relever un nouveau défi, viens tenter ta chance et montrer ce que tu as dans les pieds.</p>
+                        <p><strong>Pour participer, il est obligatoire de remplir le formulaire suivant :</strong></p>
+                        <p><a href="https://forms.gle/R2FUSRtVLKxLGtmz9" target="_blank" rel="noopener noreferrer">https://forms.gle/R2FUSRtVLKxLGtmz9</a></p>
+                        <p>Tu peux également le retrouver sur le site du club ou directement via le lien en bio.</p>
+                        <p><strong>Ne tarde pas, les places sont limitées.</strong></p>
+                        <p>On a hâte de vous voir sur le terrain. Partage à ton/ta pote pour qu'il/elle rejoigne l'aventure Saint-Marc Football.</p>
+                    </div>
+                </article>
+
+                <article class="manifestation-card">
+                    <img src="photo/loto__ta1635.png" alt="Affiche du loto Saint Marc Football" class="manifestation-poster">
+                    <div class="manifestation-content">
+                        <p class="manifestation-label">Manifestation</p>
+                        <h3>Loto du Club</h3>
+                    </div>
+                </article>
+            </div>
         </section>
-        <div class="document-actions">
-            <a class="btn btn-outline" href="photo/Organigramme Sportif.pdf#view=Fit&page=1" target="_blank" rel="noopener noreferrer">Ouvrir en grand</a>
-        </div>
     </main>
 
     <footer>
