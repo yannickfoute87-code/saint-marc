@@ -710,6 +710,154 @@ section h2::after {
 }
 }
 
+/* ============= PROMOTIONS / STAGES ============= */
+.promo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 420px));
+    gap: 28px;
+    justify-content: center;
+}
+
+.promo-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 24px rgba(0, 61, 165, 0.12);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.promo-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 36px rgba(0, 61, 165, 0.18);
+    border-color: var(--primary-light);
+}
+
+.promo-poster {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: var(--gray-100);
+}
+
+.promo-content {
+    padding: 28px;
+}
+
+.promo-content h3 {
+    color: var(--primary);
+    font-size: 22px;
+    line-height: 1.3;
+    margin-bottom: 18px;
+}
+
+.promo-content p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.promo-content ul {
+    color: var(--text-secondary);
+    margin: 4px 0 14px 20px;
+    line-height: 1.8;
+}
+
+.promo-content strong {
+    color: var(--primary-dark);
+}
+
+/* ============= MANIFESTATIONS ============= */
+.manifestation-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    align-items: start;
+}
+
+.manifestation-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 24px rgba(0, 61, 165, 0.12);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.manifestation-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-light);
+    box-shadow: 0 18px 40px rgba(0, 61, 165, 0.18);
+}
+
+.manifestation-card-featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
+}
+
+.manifestation-poster {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: var(--gray-100);
+}
+
+.manifestation-card-featured .manifestation-poster {
+    height: 100%;
+    object-fit: cover;
+}
+
+.manifestation-content {
+    padding: 28px;
+}
+
+.manifestation-label {
+    display: inline-flex;
+    width: fit-content;
+    margin-bottom: 12px;
+    padding: 6px 12px;
+    color: var(--primary);
+    background: var(--primary-ultra-light);
+    border: 1px solid rgba(0, 61, 165, 0.12);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.manifestation-content h3 {
+    color: var(--primary);
+    font-size: 24px;
+    line-height: 1.3;
+    margin-bottom: 18px;
+}
+
+.manifestation-content p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.manifestation-content a {
+    color: var(--primary);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.manifestation-content ul {
+    color: var(--text-secondary);
+    margin: 4px 0 14px 20px;
+    line-height: 1.8;
+}
+
+.manifestation-content strong {
+    color: var(--primary-dark);
+}
+
 /* ============= BUTTONS ============= */
 .btn {
     display: inline-flex;
@@ -1838,6 +1986,16 @@ footer {
 
     section h2 { font-size: 26px; }
     .card-grid { grid-template-columns: 1fr; }
+    .manifestation-grid { grid-template-columns: 1fr; }
+    .manifestation-card-featured {
+        display: block;
+        grid-column: auto;
+    }
+    .manifestation-card-featured .manifestation-poster {
+        height: auto;
+        object-fit: initial;
+    }
+    .manifestation-content { padding: 22px; }
 
     .container { padding: 40px 16px; }
     .document-page { padding: 38px 14px 52px; }
