@@ -11,12 +11,20 @@
             background-image: url('photo/arbitres.jpeg') !important;
             background-size: cover !important;
             background-position: center !important;
+            background-repeat: no-repeat !important;
             background-attachment: fixed !important;
         }
 
         .hero-arbitres::before {
-            background: linear-gradient(135deg, rgba(0, 32, 96, 0.4) 0%, rgba(0, 61, 165, 0.3) 50%, rgba(0, 82, 204, 0.4) 100%) !important;
-            opacity: 0.8 !important;
+            display: none !important;
+        }
+
+        .hero-arbitres::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 32, 96, 0.4) 0%, rgba(0, 61, 165, 0.3) 50%, rgba(0, 82, 204, 0.4) 100%);
+            z-index: 2;
         }
         .referee-grid {
             display: grid !important;
