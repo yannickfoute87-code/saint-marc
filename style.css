@@ -731,14 +731,15 @@ section h2::after {
 /* ============= ARBITRES ============= */
 .referee-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 170px));
+    justify-content: center;
+    gap: 22px;
 }
 
 .referee-card {
     background: var(--white);
     border: 1px solid var(--gray-200);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
     box-shadow: 0 8px 24px rgba(0, 61, 165, 0.12);
     overflow: hidden;
     text-align: center;
@@ -756,20 +757,20 @@ section h2::after {
     align-items: center;
     justify-content: center;
     width: 100%;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 1 / 1;
     background: linear-gradient(135deg, var(--primary-ultra-light), var(--gray-100));
     color: var(--primary);
     border-bottom: 1px solid var(--gray-200);
-    font-size: 42px;
+    font-size: 34px;
     font-weight: 700;
 }
 
 .referee-card h3 {
     color: var(--primary-dark);
-    font-size: 18px;
+    font-size: 14px;
     line-height: 1.35;
     margin: 0;
-    padding: 18px 14px 20px;
+    padding: 12px 8px 14px;
 }
 
 /* ============= PROMOTIONS / STAGES ============= */
