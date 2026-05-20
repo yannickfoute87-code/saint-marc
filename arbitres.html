@@ -9,31 +9,50 @@
     <style>
         .referee-grid {
             display: grid !important;
-            grid-template-columns: repeat(6, 150px) !important;
+            grid-template-columns: repeat(5, 150px) !important;
             justify-content: center !important;
-            gap: 34px 26px !important;
-            max-width: 980px !important;
+            gap: 40px 30px !important;
+            max-width: 900px !important;
             margin: 0 auto !important;
         }
 
         .referee-card {
             position: relative !important;
-            grid-column: span 2 !important;
             width: 150px !important;
             background: #fff !important;
-            border: 1px solid rgba(0, 61, 165, 0.12) !important;
-            border-radius: 6px !important;
+            border: 2px solid rgba(0, 61, 165, 0.15) !important;
+            border-radius: 8px !important;
             box-shadow: 0 8px 22px rgba(0, 32, 96, 0.12) !important;
             overflow: visible !important;
             text-align: center !important;
+            transition: all 0.3s ease !important;
         }
 
+        .referee-card:hover {
+            box-shadow: 0 12px 28px rgba(0, 32, 96, 0.18) !important;
+            border-color: rgba(0, 61, 165, 0.3) !important;
+        }
+
+        /* Pyramide - 1ère ligne: 2 arbitres */
         .referee-card:nth-child(1) {
-            grid-column: 2 / span 2 !important;
+            grid-column: 2 !important;
         }
 
         .referee-card:nth-child(2) {
-            grid-column: 4 / span 2 !important;
+            grid-column: 4 !important;
+        }
+
+        /* Pyramide - 2ème ligne: 3 arbitres */
+        .referee-card:nth-child(3) {
+            grid-column: 1 !important;
+        }
+
+        .referee-card:nth-child(4) {
+            grid-column: 3 !important;
+        }
+
+        .referee-card:nth-child(5) {
+            grid-column: 5 !important;
         }
 
         .referee-photo-placeholder {
@@ -87,13 +106,21 @@
 
         @media (max-width: 768px) {
             .referee-grid {
-                grid-template-columns: repeat(2, 150px) !important;
-                gap: 28px 18px !important;
+                grid-template-columns: repeat(3, 130px) !important;
+                gap: 35px 20px !important;
             }
 
-            .referee-card,
-            .referee-card:nth-child(1),
+            .referee-card:nth-child(1) {
+                grid-column: 2 !important;
+            }
+
             .referee-card:nth-child(2) {
+                grid-column: 2 !important;
+            }
+
+            .referee-card:nth-child(3),
+            .referee-card:nth-child(4),
+            .referee-card:nth-child(5) {
                 grid-column: auto !important;
             }
         }
