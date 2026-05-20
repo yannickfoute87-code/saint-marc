@@ -8,11 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         .hero-arbitres {
-            background-image: url('photo/arbitres.jpeg') !important;
-            background-size: cover !important;
-            background-position: center !important;
-            background-repeat: no-repeat !important;
-            background-attachment: fixed !important;
+            background: url('photo/arbitres.jpeg') center/cover fixed no-repeat !important;
+            background-color: #003da5 !important;
         }
 
         .hero-arbitres::before {
@@ -23,8 +20,13 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(0, 32, 96, 0.4) 0%, rgba(0, 61, 165, 0.3) 50%, rgba(0, 82, 204, 0.4) 100%);
-            z-index: 2;
+            background: linear-gradient(135deg, rgba(0, 32, 96, 0.45) 0%, rgba(0, 61, 165, 0.35) 50%, rgba(0, 82, 204, 0.45) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            z-index: 10 !important;
         }
         .referee-grid {
             display: grid !important;
