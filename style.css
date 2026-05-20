@@ -731,8 +731,8 @@ section h2::after {
 /* ============= PROMOTIONS / STAGES ============= */
 .promo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 420px));
-    gap: 28px;
+    grid-template-columns: minmax(0, 920px);
+    gap: 24px;
     justify-content: center;
 }
 
@@ -743,6 +743,9 @@ section h2::after {
     box-shadow: 0 8px 24px rgba(0, 61, 165, 0.12);
     overflow: hidden;
     transition: var(--transition);
+    display: grid;
+    grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+    align-items: stretch;
 }
 
 .promo-card:hover {
@@ -754,12 +757,14 @@ section h2::after {
 .promo-poster {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    max-height: 430px;
+    object-fit: contain;
     background: var(--gray-100);
 }
 
 .promo-content {
-    padding: 28px;
+    padding: 24px;
 }
 
 .promo-content h3 {
@@ -789,8 +794,8 @@ section h2::after {
 /* ============= MANIFESTATIONS ============= */
 .manifestation-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 28px;
+    grid-template-columns: 1fr;
+    gap: 24px;
     align-items: start;
 }
 
@@ -801,6 +806,9 @@ section h2::after {
     box-shadow: 0 8px 24px rgba(0, 61, 165, 0.12);
     overflow: hidden;
     transition: var(--transition);
+    display: grid;
+    grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+    align-items: stretch;
 }
 
 .manifestation-card:hover {
@@ -810,15 +818,15 @@ section h2::after {
 }
 
 .manifestation-card-featured {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
+    grid-column: auto;
 }
 
 .manifestation-poster {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    max-height: 430px;
+    object-fit: contain;
     background: var(--gray-100);
 }
 
@@ -828,7 +836,7 @@ section h2::after {
 }
 
 .manifestation-content {
-    padding: 28px;
+    padding: 24px;
 }
 
 .manifestation-label {
@@ -2005,6 +2013,15 @@ footer {
     section h2 { font-size: 26px; }
     .card-grid { grid-template-columns: 1fr; }
     .manifestation-grid { grid-template-columns: 1fr; }
+    .promo-card,
+    .manifestation-card {
+        display: block;
+    }
+    .promo-poster,
+    .manifestation-poster {
+        height: auto;
+        max-height: none;
+    }
     .manifestation-card-featured {
         display: block;
         grid-column: auto;
