@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="style.css?v=referee-pyramid-20260520">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Style spécial pour la page arbitres */
+        /* Override TOUS les styles par défaut du hero */
         .hero-arbitres {
-            background-image: url('photo/arbitres.jpeg') !important;
-            background-size: cover !important;
-            background-position: center center !important;
-            background-repeat: no-repeat !important;
+            background: url('photo/arbitres.jpeg') center/cover fixed no-repeat !important;
+        }
+
+        .hero-arbitres,
+        .hero-arbitres * {
             background-attachment: fixed !important;
-            position: relative !important;
         }
 
         /* Remplacer le ::before du hero global avec un overlay léger */
@@ -28,10 +28,17 @@
             background: linear-gradient(135deg, rgba(0, 32, 96, 0.45) 0%, rgba(0, 61, 165, 0.35) 50%, rgba(0, 82, 204, 0.45) 100%) !important;
             z-index: 1 !important;
             animation: none !important;
+            opacity: 1 !important;
         }
 
         /* S'assurer que le contenu soit au-dessus */
         .hero-arbitres .hero-content {
+            position: relative !important;
+            z-index: 10 !important;
+        }
+
+        .hero-arbitres h1,
+        .hero-arbitres p {
             position: relative !important;
             z-index: 10 !important;
         }
