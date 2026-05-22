@@ -467,10 +467,20 @@ nav > ul > li:hover > .nav-link-with-arrow {
     min-height: 360px;
 }
 
-.compact-hero.hero-arbitres {
-    background: red !important;
+.hero.hero-arbitres {
+    background: url('photo/arbitres.jpeg') center/cover fixed no-repeat !important;
+    background-attachment: fixed !important;
+    background-color: #f0f5ff !important;
     min-height: 400px !important;
-    height: 400px !important;
+}
+
+.hero.hero-arbitres::before {
+    background: linear-gradient(135deg, rgba(0, 32, 96, 0.4) 0%, rgba(0, 61, 165, 0.3) 50%, rgba(0, 82, 204, 0.4) 100%) !important;
+    z-index: 1 !important;
+}
+
+.hero.hero-arbitres .hero-content {
+    z-index: 20 !important;
 }
 
 .compact-hero .carousel-track-bg {

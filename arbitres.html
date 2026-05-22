@@ -13,9 +13,9 @@
         }
 
         /* Override TOUS les styles par défaut du hero et compact-hero */
-        .hero-arbitres {
-            background: url('photo/arbitres.jpeg') center/cover fixed no-repeat !important;
-            background-color: transparent !important;
+        section.hero.hero-arbitres {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.7), rgba(255, 100, 0, 0.7)), url('photo/arbitres.jpeg') center/cover fixed !important;
+            background-color: #f0f5ff !important;
             min-height: 400px !important;
             height: auto !important;
         }
@@ -248,7 +248,7 @@
         </div>
     </header>
 
-    <section class="hero compact-hero hero-arbitres">
+    <section class="hero compact-hero hero-arbitres" style="background: linear-gradient(135deg, rgba(255, 0, 0, 0.7), rgba(255, 100, 0, 0.7)), url('photo/arbitres.jpeg') center/cover fixed !important; min-height: 400px !important;">
         <div class="hero-content">
             <h1>Arbitres</h1>
             <p>Les arbitres du Saint Marc Football.</p>

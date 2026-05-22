@@ -586,14 +586,3 @@ function redirectClassement(selectId) {
     }
 }
 
-// Fonction pour rediriger vers le classement sélectionné
-function redirectClassement(selectId) {
-    const selectElement = document.getElementById(selectId);
-    const url = selectElement.value;
-    if (url) {
-        window.open(url, '_blank');
-    } else {
-        alert('Veuillez sélectionner une équipe');
-    }
-}
-
