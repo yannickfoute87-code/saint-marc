@@ -468,11 +468,7 @@ nav > ul > li:hover > .nav-link-with-arrow {
 }
 
 .compact-hero.hero-arbitres {
-    background-image: url('photo/arbitres.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: red !important;
 }
 
 .compact-hero .carousel-track-bg {
