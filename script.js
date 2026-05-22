@@ -535,6 +535,20 @@ function loadPoleGallery() {
             `;
             
             infoCard.innerHTML = infoHTML;
+        }
+    }
+});
+
+// Fonction pour rediriger vers le classement sélectionné
+function redirectClassement(selectId) {
+    const selectElement = document.getElementById(selectId);
+    const url = selectElement.value;
+    if (url) {
+        window.open(url, '_blank');
+    } else {
+        alert('Veuillez sélectionner une équipe');
+    }
+}
             gallery.appendChild(infoCard);
         }
         
@@ -569,6 +583,17 @@ function loadPoleGallery() {
     } else if (pole) {
         title.textContent = 'Aucune photo disponible';
         gallery.innerHTML = '<p>Sélectionnez un pôle pour voir les photos.</p>';
+    }
+}
+
+// Fonction pour rediriger vers le classement sélectionné
+function redirectClassement(selectId) {
+    const selectElement = document.getElementById(selectId);
+    const url = selectElement.value;
+    if (url) {
+        window.open(url, '_blank');
+    } else {
+        alert('Veuillez sélectionner une équipe');
     }
 }
 
