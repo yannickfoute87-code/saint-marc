@@ -469,6 +469,8 @@ nav > ul > li:hover > .nav-link-with-arrow {
 
 .compact-hero.hero-arbitres {
     background: red !important;
+    min-height: 400px !important;
+    height: 400px !important;
 }
 
 .compact-hero .carousel-track-bg {
