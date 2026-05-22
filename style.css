@@ -467,6 +467,14 @@ nav > ul > li:hover > .nav-link-with-arrow {
     min-height: 360px;
 }
 
+.compact-hero.hero-arbitres {
+    background-image: url('photo/arbitres.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 .compact-hero .carousel-track-bg {
     width: 100%;
     height: 100%;
@@ -2318,9 +2326,12 @@ footer {
     }
     .hero-stats { flex-direction: column; gap: 6px; }
 }
- 
- / *   P o l e   I n f o   C a r d   B u t t o n   * /  
- . p o l e - i n f o - c a r d   . b t n   {   m a r g i n - t o p :   2 4 p x ;   d i s p l a y :   i n l i n e - f l e x ;   p a d d i n g :   1 4 p x   3 2 p x ;   f o n t - s i z e :   1 5 p x ;   f o n t - w e i g h t :   7 0 0 ;   b o x - s h a d o w :   0   6 p x   2 0 p x   r g b a ( 0 ,   6 1 ,   1 6 5 ,   0 . 3 ) ;   }  
+
+ 
+ / *   P o l e   I n f o   C a r d   B u t t o n   * / 
+ 
+ . p o l e - i n f o - c a r d   . b t n   {   m a r g i n - t o p :   2 4 p x ;   d i s p l a y :   i n l i n e - f l e x ;   p a d d i n g :   1 4 p x   3 2 p x ;   f o n t - s i z e :   1 5 p x ;   f o n t - w e i g h t :   7 0 0 ;   b o x - s h a d o w :   0   6 p x   2 0 p x   r g b a ( 0 ,   6 1 ,   1 6 5 ,   0 . 3 ) ;   } 
+ 
  $css
 
 
@@ -2333,7 +2344,15 @@ footer {
 
 
 /* PAGE ARBITRES */
+.hero-arbitres::before {
+    background: linear-gradient(135deg, rgba(0, 32, 96, 0.4) 0%, rgba(0, 61, 165, 0.3) 50%, rgba(0, 82, 204, 0.4) 100%) !important;
+    z-index: 0 !important;
+}
+
 .hero-arbitres {
-    background: url('photo/arbitres.jpeg') center/cover fixed no-repeat !important;
-    min-height: 400px !important;
+    position: relative;
+}
+
+.hero-arbitres .carousel-background {
+    z-index: -1 !important;
 }
