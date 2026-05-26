@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const nav = document.querySelector('nav');
 
     if (hamburger && navMenu) {
+        hamburger.setAttribute('aria-label', 'Ouvrir le menu');
         hamburger.setAttribute('aria-expanded', 'false');
 
         hamburger.addEventListener('click', function(e) {
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
             hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active') ? 'true' : 'false');
+            hamburger.setAttribute('aria-label', navMenu.classList.contains('active') ? 'Fermer le menu' : 'Ouvrir le menu');
         });
 
         // Fermer le menu en cliquant en dehors (mobile)
@@ -25,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         navMenu.classList.remove('active');
                         hamburger.classList.remove('active');
                         hamburger.setAttribute('aria-expanded', 'false');
+                        hamburger.setAttribute('aria-label', 'Ouvrir le menu');
                         document.querySelectorAll('.dropdown-menu-item').forEach(item => item.classList.remove('active'));
                     }
                 }
@@ -72,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     navMenu.classList.remove('active');
                     hamburger.classList.remove('active');
                     hamburger.setAttribute('aria-expanded', 'false');
+                    hamburger.setAttribute('aria-label', 'Ouvrir le menu');
                     dropdownItems.forEach(item => item.classList.remove('active'));
                     dropdownItems.forEach(item => {
                         const submenu = item.children[1] && item.children[1].classList && item.children[1].classList.contains('dropdown-submenu')
@@ -380,7 +384,7 @@ function loadPoleGallery() {
             coachLabel: 'Entraîneur',
             coaches: 'RENAUD LE QUILLIEC',
             players: '21 joueurs',
-            matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_SEM_1/equipe',
+            matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_SEM_1/classement',
             matchLinkLabel: 'Classement'
         },
         'senior-b': {
@@ -417,12 +421,16 @@ function loadPoleGallery() {
         'formation-u17': {
             coachLabel: 'Entraîneur',
             coaches: 'Nicolas FRASLIN',
-            players: '20 joueurs'
+            players: '20 joueurs',
+            matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_U17_9/classement',
+            matchLinkLabel: 'Classement'
         },
         'formation-u16': {
             coachLabel: 'Entraîneur',
             coaches: 'Jordan GUIHENEUF',
-            players: '20 joueurs'
+            players: '20 joueurs',
+            matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_U17_10/classement',
+            matchLinkLabel: 'Classement'
         },
         u18: {
             coachLabel: 'Entraîneur',
@@ -432,12 +440,16 @@ function loadPoleGallery() {
         u17: {
             coachLabel: 'Entraîneur',
             coaches: 'Nicolas FRASLIN',
-            players: '20 joueurs'
+            players: '20 joueurs',
+            matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_U17_9/classement',
+            matchLinkLabel: 'Classement'
         },
         u16: {
             coachLabel: 'Entraîneur',
             coaches: 'Jordan GUIHENEUF',
-            players: '20 joueurs'
+            players: '20 joueurs',
+            matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_U17_10/classement',
+            matchLinkLabel: 'Classement'
         },
         preformation: {
             coachLabel: 'Entraîneurs',
@@ -447,22 +459,30 @@ function loadPoleGallery() {
         'preformation-u15': {
             coachLabel: 'Entraîneur',
             coaches: 'Nutcho GOMES SA',
-            players: '38 joueurs'
+            players: '38 joueurs',
+            matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_U15_8/classement',
+            matchLinkLabel: 'Classement'
         },
         'preformation-u14': {
             coachLabel: 'Entraîneur',
             coaches: 'Nutcho GOMES SA',
-            players: '20 joueurs'
+            players: '20 joueurs',
+            matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_U15_11/classement',
+            matchLinkLabel: 'Classement'
         },
         'preformation-u13a': {
             coachLabel: 'Entraîneur',
             coaches: 'Romains ALIX',
-            players: '22 joueurs'
+            players: '22 joueurs',
+            matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_U13_7/classement',
+            matchLinkLabel: 'Classement'
         },
         'preformation-u12': {
             coachLabel: 'Entraîneur',
             coaches: 'Romains ALIX',
-            players: '30 joueurs'
+            players: '30 joueurs',
+            matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_U13_12/classement',
+            matchLinkLabel: 'Classement'
         },
         'ecole-foot': {
             coachLabel: 'Entraîneurs',
@@ -519,7 +539,7 @@ function loadPoleGallery() {
         if (details) {
             const infoCard = document.createElement('div');
             infoCard.className = 'pole-info-card';
-            let infoHTML = `
+            infoCard.innerHTML = `
                 <div class="info-details">
                     <p><strong>${details.coachLabel}:</strong> ${details.coaches}</p>
                     <p><strong>Effectif:</strong> ${details.players}</p>
@@ -533,25 +553,9 @@ function loadPoleGallery() {
                     ` : ''}
                 </div>
             `;
-            
-            infoCard.innerHTML = infoHTML;
-        }
-    }
-});
-
-// Fonction pour rediriger vers le classement sélectionné
-function redirectClassement(selectId) {
-    const selectElement = document.getElementById(selectId);
-    const url = selectElement.value;
-    if (url) {
-        window.open(url, '_blank');
-    } else {
-        alert('Veuillez sélectionner une équipe');
-    }
-}
             gallery.appendChild(infoCard);
         }
-        
+
         poleData.photos.forEach((photo, index) => {
             const card = document.createElement('div');
             card.className = 'photo-card';
@@ -583,6 +587,17 @@ function redirectClassement(selectId) {
     } else if (pole) {
         title.textContent = 'Aucune photo disponible';
         gallery.innerHTML = '<p>Sélectionnez un pôle pour voir les photos.</p>';
+    }
+}
+
+// Fonction pour rediriger vers le classement sélectionné
+function redirectClassement(selectId) {
+    const selectElement = document.getElementById(selectId);
+    const url = selectElement.value;
+    if (url) {
+        window.open(url, '_blank');
+    } else {
+        alert('Veuillez sélectionner une équipe');
     }
 }
 
