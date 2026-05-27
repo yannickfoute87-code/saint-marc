@@ -1467,6 +1467,75 @@ form textarea {
     font-weight: 700;
 }
 
+.commissions-page {
+    max-width: 1200px;
+}
+
+.commission-pyramid {
+    display: grid;
+    gap: 24px;
+}
+
+.commission-row {
+    display: grid;
+    gap: 22px;
+    justify-content: center;
+}
+
+.commission-row-top {
+    grid-template-columns: minmax(260px, 360px);
+}
+
+.commission-row-two {
+    grid-template-columns: repeat(2, minmax(240px, 330px));
+}
+
+.commission-row-three {
+    grid-template-columns: repeat(3, minmax(220px, 300px));
+}
+
+.commission-card {
+    background: linear-gradient(180deg, var(--white), #fbfdff);
+    border: 1px solid rgba(0, 61, 165, 0.16);
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 26px rgba(0, 61, 165, 0.12);
+    padding: 24px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.commission-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary-light);
+    box-shadow: 0 16px 34px rgba(0, 61, 165, 0.18);
+}
+
+.commission-name {
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+}
+
+.commission-card h3 {
+    color: var(--primary-dark);
+    font-size: 18px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.commission-card a {
+    color: var(--text-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.commission-card a:hover {
+    color: var(--primary);
+}
+
 @media (max-width: 900px) {
     .team-detail-card {
         grid-template-columns: 1fr;
@@ -1480,6 +1549,12 @@ form textarea {
 
     .team-detail-info {
         padding: 26px;
+    }
+
+    .commission-row-top,
+    .commission-row-two,
+    .commission-row-three {
+        grid-template-columns: minmax(0, 1fr);
     }
 }
 
