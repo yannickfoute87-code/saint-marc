@@ -574,7 +574,6 @@ function loadPoleGallery() {
                     <h2>${poleData.title}</h2>
                     <div class="team-detail-list">
                         <p><strong>${details.coachLabel}:</strong> ${details.coaches}</p>
-                        <p><strong>Contact:</strong> <a href="mailto:saintmarcfoot@gmail.com">saintmarcfoot@gmail.com</a> - +33 9 62 15 48 87</p>
                         <p><strong>Effectif:</strong> ${details.players}</p>
                     </div>
                     ${classementMarkup}
