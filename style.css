@@ -241,7 +241,7 @@ nav > ul > li:hover > .nav-link-with-arrow {
 .dropdown-submenu {
     display: none;
     position: absolute;
-    top: calc(100% + 8px);
+    top: 100%;
     left: 0;
     background: var(--white);
     flex-direction: column;
@@ -293,7 +293,7 @@ nav > ul > li:hover > .nav-link-with-arrow {
     left: 0;
     right: 0;
     width: min(1000px, calc(100vw - 40px));
-    margin: 8px auto 0;
+    margin: 0 auto;
     padding: 24px;
     display: none;
     flex-direction: row;
@@ -344,7 +344,10 @@ nav > ul > li:hover > .nav-link-with-arrow {
 }
 
 .dropdown-menu-item:hover > .dropdown-submenu,
-.dropdown-submenu .dropdown-menu-item:hover > .dropdown-submenu {
+.dropdown-menu-item:focus-within > .dropdown-submenu,
+.dropdown-menu-item.active > .dropdown-submenu,
+.dropdown-submenu .dropdown-menu-item:hover > .dropdown-submenu,
+.dropdown-submenu .dropdown-menu-item:focus-within > .dropdown-submenu {
     display: flex;
 }
 
@@ -1376,6 +1379,108 @@ form textarea {
 
 .photo-card:hover img { 
     transform: scale(1.15); 
+}
+
+.team-detail-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.75fr);
+    gap: 34px;
+    align-items: stretch;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    box-shadow: 0 14px 34px rgba(0, 61, 165, 0.16);
+    overflow: hidden;
+}
+
+.team-detail-photo {
+    min-height: 520px;
+    background: var(--gray-100);
+}
+
+.team-detail-photo img {
+    width: 100%;
+    height: 100%;
+    min-height: 520px;
+    object-fit: cover;
+    display: block;
+}
+
+.team-detail-info {
+    padding: 34px 34px 34px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 22px;
+}
+
+.team-detail-label {
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.team-detail-info h2 {
+    align-items: flex-start;
+    color: var(--primary-dark);
+    font-size: clamp(32px, 5vw, 56px);
+    margin: 0;
+    text-align: left;
+}
+
+.team-detail-info h2::after {
+    display: none;
+}
+
+.team-detail-list {
+    display: grid;
+    gap: 12px;
+    padding: 20px 0;
+    border-top: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.team-detail-list p {
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.team-detail-list strong {
+    color: var(--primary-dark);
+}
+
+.team-detail-list a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.team-detail-ranking {
+    align-self: flex-start;
+}
+
+.team-detail-muted {
+    color: var(--text-secondary);
+    font-weight: 700;
+}
+
+@media (max-width: 900px) {
+    .team-detail-card {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .team-detail-photo,
+    .team-detail-photo img {
+        min-height: 320px;
+    }
+
+    .team-detail-info {
+        padding: 26px;
+    }
 }
 
 /* ============= ORGANIGRAMMES ============= */

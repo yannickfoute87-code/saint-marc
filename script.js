@@ -1,4 +1,4 @@
-﻿/* ===========================
+/* ===========================
    SAINT MARC FOOTBALL - SCRIPT
    =========================== */
 
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 : null;
 
             link.addEventListener('click', function(e) {
-                if (window.innerWidth <= 900) {
+                if (submenu) {
                     e.preventDefault();
                     const isOpen = item.classList.contains('active');
 
@@ -65,6 +65,20 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
             });
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+                dropdownItems.forEach(item => {
+                    item.classList.remove('active');
+                    const submenu = item.children[1] && item.children[1].classList && item.children[1].classList.contains('dropdown-submenu')
+                        ? item.children[1]
+                        : null;
+                    if (submenu) {
+                        submenu.classList.remove('open');
+                    }
+                });
+            }
         });
 
         navMenu.querySelectorAll('a').forEach(link => {
@@ -372,6 +386,10 @@ function loadPoleGallery() {
     const poleData = age && agePhotos[age] ? agePhotos[age] : polePhotos[poleKey];
     const gallery = document.getElementById('photoGallery');
     const title = document.getElementById('poleTitle');
+    const poleGallerySection = document.getElementById('poleGallery');
+    const detailsSection = document.getElementById('teamDetailsSection');
+    const detailsContent = document.getElementById('teamDetailsContent');
+    const isTeamView = Boolean((pole === 'senior' && team) || age);
     const detailKey = pole && age ? `${pole}-${age}` : poleKey;
     const seniorDetails = {
         coachLabel: 'Entraîneurs',
@@ -453,7 +471,7 @@ function loadPoleGallery() {
         },
         preformation: {
             coachLabel: 'Entraîneurs',
-            coaches: 'Nutcho GOMES SA, Romains ALIX',
+            coaches: 'Nutcho GOMES SA, Romain ALIX',
             players: '110 joueurs'
         },
         'preformation-u15': {
@@ -472,14 +490,14 @@ function loadPoleGallery() {
         },
         'preformation-u13a': {
             coachLabel: 'Entraîneur',
-            coaches: 'Romains ALIX',
+            coaches: 'Romain ALIX',
             players: '22 joueurs',
             matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_U13_7/classement',
             matchLinkLabel: 'Classement'
         },
         'preformation-u12': {
             coachLabel: 'Entraîneur',
-            coaches: 'Romains ALIX',
+            coaches: 'Romain ALIX',
             players: '30 joueurs',
             matchLink: 'https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_U13_12/classement',
             matchLinkLabel: 'Classement'
@@ -536,6 +554,51 @@ function loadPoleGallery() {
         gallery.innerHTML = '';
 
         const details = poleDetails[detailKey] || poleDetails[poleKey] || poleDetails[age];
+        if (isTeamView && details && detailsSection && detailsContent) {
+            const selectedPhoto = poleData.photos[0];
+            const classementMarkup = details.matchLink ? `
+                <a class="btn team-detail-ranking" href="${details.matchLink}" target="_blank" rel="noopener">
+                    Voir le classement
+                </a>
+            ` : `
+                <p class="team-detail-muted">Classement a venir</p>
+            `;
+
+            detailsContent.className = 'team-detail-card';
+            detailsContent.innerHTML = `
+                <div class="team-detail-photo">
+                    <img src="photo/${selectedPhoto}" alt="${poleData.title}" loading="eager">
+                </div>
+                <div class="team-detail-info">
+                    <p class="team-detail-label">Equipe</p>
+                    <h2>${poleData.title}</h2>
+                    <div class="team-detail-list">
+                        <p><strong>${details.coachLabel}:</strong> ${details.coaches}</p>
+                        <p><strong>Contact:</strong> <a href="mailto:saintmarcfoot@gmail.com">saintmarcfoot@gmail.com</a> - +33 9 62 15 48 87</p>
+                        <p><strong>Effectif:</strong> ${details.players}</p>
+                    </div>
+                    ${classementMarkup}
+                </div>
+            `;
+            detailsSection.style.display = 'block';
+            if (poleGallerySection) {
+                poleGallerySection.style.display = 'none';
+            }
+            document.querySelectorAll('.container > section').forEach(section => {
+                if (section !== detailsSection) {
+                    section.style.display = 'none';
+                }
+            });
+            return;
+        }
+
+        if (detailsSection) {
+            detailsSection.style.display = 'none';
+        }
+        if (poleGallerySection) {
+            poleGallerySection.style.display = '';
+        }
+
         if (details) {
             const infoCard = document.createElement('div');
             infoCard.className = 'pole-info-card';
