@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>U14 - Saint Marc Football</title>
-    <link rel="stylesheet" href="style.css?v=categorie-20260522">
+    <title>Convocations U15 - Saint Marc Football</title>
+    <link rel="stylesheet" href="style.css?v=convocation-20260605">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -40,15 +40,15 @@
                                 <li class="mega-menu-column">
                                     <span class="mega-menu-title">La Vie du Club</span>
                                     <ul class="mega-menu-links">
-                                        <li><a href="actualites.html">ActualitÃ©s</a></li>
+                                        <li><a href="actualites.html">Actualités</a></li>
                                         <li><a href="licences.html">Licences 2026-2027</a></li>
                                     </ul>
                                 </li>
                                 <li class="mega-menu-column">
-                                    <span class="mega-menu-title">Ã€ propos du club</span>
+                                    <span class="mega-menu-title">À propos du club</span>
                                     <ul class="mega-menu-links">
                                         <li><a href="club.html#a-propos-du-club">Notre histoire</a></li>
-                                        <li><a href="comite-directeur.html">Le comitÃ© directeur</a></li>
+                                        <li><a href="comite-directeur.html">Le comité directeur</a></li>
                                         <li><a href="organigramme-sportif.html">Organigramme sportif</a></li>
                                         <li><a href="commissions.html">Commissions</a></li>
                                         <li><a href="arbitres.html">Arbitres</a></li>
@@ -56,7 +56,7 @@
                                     </ul>
                                 </li>
                                 <li class="mega-menu-column">
-                                    <span class="mega-menu-title">Ã‰vÃ©nements</span>
+                                    <span class="mega-menu-title">Événements</span>
                                     <ul class="mega-menu-links">
                                         <li><a href="manifestations.html">Calendrier des manifestations</a></li>
                                         <li><a href="manifestations.html">Tournois</a></li>
@@ -65,7 +65,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="equipes.html">Ã‰quipes</a></li>
+                        <li><a href="equipes.html">Équipes</a></li>
                         <li><a href="partenaires.html">Partenaires</a></li>
                         <li><a href="https://app.grinta.eu/saint-marc-football/adult/official" target="_blank" rel="noopener noreferrer">Boutique</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -78,85 +78,103 @@
     <section class="hero compact-hero">
         <div class="carousel-background">
             <div class="carousel-track-bg">
-                <img src="photo/U14.JPG" alt="Ã‰quipe U14">
+                <img src="photo/U15.JPG" alt="Équipe U15">
             </div>
         </div>
         <div class="hero-content">
-            <h1>Ã‰quipe U14</h1>
-            <p>PÃ´le PrÃ©formation</p>
+            <h1>Convocations U15</h1>
+            <p>Liste des joueurs sélectionnés</p>
         </div>
     </section>
 
     <main class="container">
-        <section>
-            <h2>U14 - DÃ©tails de l'Ã‰quipe</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>EntraÃ®neur</h3>
-                    <p><strong>Nutcho GOMES SA</strong></p>
-                </div>
-                <div class="card">
-                    <h3>Effectif</h3>
-                    <p><strong>20 joueurs</strong></p>
-                </div>
-                <div class="card">
-                    <h3>PÃ´le</h3>
-                    <p><strong>PrÃ©formation</strong></p>
+        <div id="auth-container" class="auth-container">
+            <div class="auth-box">
+                <h2>Accès Entraîneur</h2>
+                <p>Entrez votre mot de passe pour accéder à l'espace de gestion</p>
+                <div class="auth-form">
+                    <input type="password" id="auth-password" placeholder="Mot de passe" class="auth-input">
+                    <button id="auth-btn" class="btn btn-auth">Accéder</button>
+                    <p id="auth-error" class="error-message"></p>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section>
-            <h2>Classement du Championnat</h2>
-            <div class="card">
-                <p>Classement en direct sur le site de la FÃ©dÃ©ration FranÃ§aise de Football</p>
-                <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 15px;">
-                    <a href="https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_U15_11/classement" target="_blank" rel="noopener noreferrer" class="btn">Voir le classement complet</a>
-                    <a href="convocation-u14.html" class="btn convocation-btn">ðŸ“‹ Convocations</a>
+        <div id="coach-section" class="coach-section" style="display: none;">
+            <section>
+                <h2>Gestion des Convocations U15</h2>
+                <div class="coach-panel">
+                    <div class="upload-area">
+                        <h3>Téléverser la liste de convocation</h3>
+                        <p>Téléversez le document PDF ou l'image de la liste des joueurs convoqués</p>
+                        <div class="file-upload-container">
+                            <input type="file" id="file-input" accept=".pdf,.jpg,.jpeg,.png,.gif" class="file-input">
+                            <label for="file-input" class="file-label">
+                                <span class="upload-icon">??</span>
+                                <span>Cliquez ou glissez un fichier ici</span>
+                            </label>
+                        </div>
+                        <p class="file-info">Formats acceptés: PDF, JPG, PNG, GIF</p>
+                        <button id="upload-btn" class="btn btn-secondary">Téléverser</button>
+                    </div>
+
+                    <div class="convocation-list">
+                        <h3>Convocations enregistrées</h3>
+                        <div id="convocation-items" class="convocation-items">
+                            <p class="empty-message">Aucune convocation téléversée pour le moment</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section style="text-align: center;">
-            <a href="equipes.html" class="btn">Retour aux Ã‰quipes</a>
-        </section>
+            <section style="text-align: center;">
+                <button id="logout-btn" class="btn btn-logout">Déconnexion</button>
+            </section>
+        </div>
+
+        <div id="public-section" class="public-section">
+            <section>
+                <h2>Convocations Actuelles</h2>
+                <div id="public-convocations" class="public-convocations">
+                    <p class="empty-message">Aucune convocation disponible pour le moment</p>
+                </div>
+            </section>
+
+            <section style="text-align: center;">
+                <a href="categorie-u15.html" class="btn">Retour à l'Équipe U15</a>
+            </section>
+        </div>
     </main>
 
     <footer>
         <div class="footer-container">
             <div class="footer-section">
-                <h4>Ã€ Propos</h4>
-                <p>Saint Marc Football est un club fondÃ© sur les valeurs de passion, d'excellence et de respect.</p>
+                <h4>À Propos</h4>
+                <p>Saint Marc Football est un club fondé sur les valeurs de passion, d'excellence et de respect.</p>
             </div>
             <div class="footer-section">
                 <h4>Navigation</h4>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="club.html">Club</a></li>
-                    <li><a href="equipes.html">Ã‰quipes</a></li>
+                    <li><a href="equipes.html">Équipes</a></li>
                     <li><a href="partenaires.html">Partenaires</a></li>
-                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h4>Contact</h4>
-                <p>Email: <a href="mailto:saintmarcfoot@gmail.com">saintmarcfoot@gmail.com</a></p>
-                <p>Tel: +33 9 62 15 48 87</p>
+                <p>Email: saintmarcfoot@gmail.com<br>Téléphone: +33 9 62 15 48 87</p>
             </div>
             <div class="footer-section">
-                <h4>Suivez-Nous</h4>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/share/17PXhodGtZ/?mibextid=wwXIfr" target="_blank" title="Facebook" class="social-btn facebook-btn">Facebook</a>
-                    <a href="https://www.instagram.com/saintmarcfootball?igsh=MTlsZHZ5NmU0bGlvYg==" target="_blank" title="Instagram" class="social-btn instagram-btn">Instagram</a>
-                    <a href="https://www.linkedin.com/in/saint-marc-football-b31a57375?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" title="LinkedIn" class="social-btn linkedin-btn">LinkedIn</a>
-                </div>
+                <h4>Suivez-nous</h4>
+                <p>Facebook | Twitter | Instagram</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Saint Marc Football. Tous droits rÃ©servÃ©s.</p>
+            <p>&copy; 2026 Saint Marc Football. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <script src="script.js?v=categorie-20260522"></script>
+    <script src="convocation.js"></script>
 </body>
 </html>
