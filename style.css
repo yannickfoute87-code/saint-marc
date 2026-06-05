@@ -813,6 +813,33 @@ section h2::after {
     margin-bottom: 0;
 }
 
+.team-single-photo {
+    width: 100%;
+    max-width: 900px;
+    height: 400px;
+    margin: 0 auto 40px;
+    background: var(--gray-100);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 61, 165, 0.12);
+}
+
+.team-single-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.team-rankings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
 .home-highlight {
     overflow: hidden;
     border: 1px solid rgba(0, 61, 165, 0.14);
