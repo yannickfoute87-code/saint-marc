@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>U13 - Saint Marc Football</title>
-    <link rel="stylesheet" href="style.css?v=categorie-20260522">
+    <title>Convocations U13 - Saint Marc Football</title>
+    <link rel="stylesheet" href="style.css?v=convocation-20260605">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -82,45 +82,71 @@
             </div>
         </div>
         <div class="hero-content">
-            <h1>Équipe U13</h1>
-            <p>Pôle Préformation</p>
+            <h1>Convocations U13</h1>
+            <p>Liste des joueurs sélectionnés</p>
         </div>
     </section>
 
     <main class="container">
-        <section>
-            <h2>U13 - Détails de la catégorie</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>Entraîneur</h3>
-                    <p><strong>Romain ALIX</strong></p>
-                </div>
-                <div class="card">
-                    <h3>Effectif</h3>
-                    <p><strong>22 joueurs (U13 A) + équipe U13 B</strong></p>
-                </div>
-                <div class="card">
-                    <h3>Pôle</h3>
-                    <p><strong>Préformation</strong></p>
+        <!-- Authentification -->
+        <div id="auth-container" class="auth-container">
+            <div class="auth-box">
+                <h2>Accès Entraîneur</h2>
+                <p>Entrez votre mot de passe pour accéder à l'espace de gestion</p>
+                <div class="auth-form">
+                    <input type="password" id="auth-password" placeholder="Mot de passe" class="auth-input">
+                    <button id="auth-btn" class="btn btn-auth">Accéder</button>
+                    <p id="auth-error" class="error-message"></p>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section>
-            <h2>Équipes U13</h2>
-            <div class="team-single-photo">
-                <img src="photo/U13.JPG" alt="Équipe U13">
-            </div>
-            <div class="team-rankings">
-                <a href="https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_U13_7/classement" target="_blank" rel="noopener noreferrer" class="btn">Classement U13 A FFF</a>
-                <a href="https://epreuves.fff.fr/competition/club/534841-st-marc-f/equipe/2025_16444_U13_14/classement" target="_blank" rel="noopener noreferrer" class="btn">Classement U13 B FFF</a>
-                <a href="convocation-u13.html" class="btn convocation-btn">📋 Convocations</a>
-            </div>
-        </section>
+        <!-- Section Coach (cachée par défaut) -->
+        <div id="coach-section" class="coach-section" style="display: none;">
+            <section>
+                <h2>Gestion des Convocations U13</h2>
+                <div class="coach-panel">
+                    <div class="upload-area">
+                        <h3>Téléverser la liste de convocation</h3>
+                        <p>Téléversez le document PDF ou l'image de la liste des joueurs convoqués</p>
+                        <div class="file-upload-container">
+                            <input type="file" id="file-input" accept=".pdf,.jpg,.jpeg,.png,.gif" class="file-input">
+                            <label for="file-input" class="file-label">
+                                <span class="upload-icon">📁</span>
+                                <span>Cliquez ou glissez un fichier ici</span>
+                            </label>
+                        </div>
+                        <p class="file-info">Formats acceptés: PDF, JPG, PNG, GIF</p>
+                        <button id="upload-btn" class="btn btn-secondary">Téléverser</button>
+                    </div>
 
-        <section style="text-align: center;">
-            <a href="equipes.html" class="btn">Retour aux Équipes</a>
-        </section>
+                    <div class="convocation-list">
+                        <h3>Convocations enregistrées</h3>
+                        <div id="convocation-items" class="convocation-items">
+                            <p class="empty-message">Aucune convocation téléversée pour le moment</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section style="text-align: center;">
+                <button id="logout-btn" class="btn btn-logout">Déconnexion</button>
+            </section>
+        </div>
+
+        <!-- Affichage public des convocations -->
+        <div id="public-section" class="public-section">
+            <section>
+                <h2>Convocations Actuelles</h2>
+                <div id="public-convocations" class="public-convocations">
+                    <p class="empty-message">Aucune convocation disponible pour le moment</p>
+                </div>
+            </section>
+
+            <section style="text-align: center;">
+                <a href="categorie-u13.html" class="btn">Retour à l'Équipe U13</a>
+            </section>
+        </div>
     </main>
 
     <footer>
@@ -136,28 +162,22 @@
                     <li><a href="club.html">Club</a></li>
                     <li><a href="equipes.html">Équipes</a></li>
                     <li><a href="partenaires.html">Partenaires</a></li>
-                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h4>Contact</h4>
-                <p>Email: <a href="mailto:saintmarcfoot@gmail.com">saintmarcfoot@gmail.com</a></p>
-                <p>Tel: +33 9 62 15 48 87</p>
+                <p>Email: saintmarcfoot@gmail.com<br>Téléphone: +33 9 62 15 48 87</p>
             </div>
             <div class="footer-section">
-                <h4>Suivez-Nous</h4>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/share/17PXhodGtZ/?mibextid=wwXIfr" target="_blank" title="Facebook" class="social-btn facebook-btn">Facebook</a>
-                    <a href="https://www.instagram.com/saintmarcfootball?igsh=MTlsZHZ5NmU0bGlvYg==" target="_blank" title="Instagram" class="social-btn instagram-btn">Instagram</a>
-                    <a href="https://www.linkedin.com/in/saint-marc-football-b31a57375?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" title="LinkedIn" class="social-btn linkedin-btn">LinkedIn</a>
-                </div>
+                <h4>Suivez-nous</h4>
+                <p>Facebook | Twitter | Instagram</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Saint Marc Football. Tous droits réservés.</p>
+            <p>&copy; 2026 Saint Marc Football. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <script src="script.js?v=categorie-20260522"></script>
+    <script src="convocation.js"></script>
 </body>
 </html>
