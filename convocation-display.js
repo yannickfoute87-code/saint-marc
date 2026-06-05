@@ -20,13 +20,20 @@ document.addEventListener('DOMContentLoaded', function() {
         // Trouver ou créer la section d'affichage
         let displayContainer = document.getElementById('convocations-display');
         if (!displayContainer) {
-            const teamRankings = document.querySelector('.team-rankings');
-            if (!teamRankings) return;
+            // Chercher .team-rankings d'abord (pages U12-U17, Féminin)
+            let insertAfter = document.querySelector('.team-rankings');
+            
+            // Si not found, chercher le bouton convocation (pages Sénior, U6-U11)
+            if (!insertAfter) {
+                insertAfter = document.querySelector('.convocation-btn');
+            }
+            
+            if (!insertAfter) return;
             
             displayContainer = document.createElement('div');
             displayContainer.id = 'convocations-display';
             displayContainer.className = 'convocations-display-section';
-            teamRankings.parentNode.insertBefore(displayContainer, teamRankings.nextSibling);
+            insertAfter.parentNode.insertBefore(displayContainer, insertAfter.nextSibling);
         }
         
         // Vider le conteneur
