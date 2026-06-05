@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             // Simple success message
-            alert('Message envoyé! Nous vous répondrons bientôt.');
+            alert('Message envoyé ! Nous vous répondrons bientôt.');
             contactForm.reset();
         });
     }
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Document tabs on chartes page
     initializeDocumentTabs();
 
-    // Load pole gallery on equipes page
+    // Load pole gallery on équipes page
     if (document.getElementById('poleGallery')) {
         loadPoleGallery();
     }
@@ -561,7 +561,7 @@ function loadPoleGallery() {
                     Voir le classement
                 </a>
             ` : `
-                <p class="team-detail-muted">Classement a venir</p>
+                <p class="team-detail-muted">Classement à venir</p>
             `;
 
             detailsContent.className = 'team-detail-card';
@@ -662,4 +662,3 @@ function redirectClassement(selectId) {
         alert('Veuillez sélectionner une équipe');
     }
 }
-
