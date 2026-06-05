@@ -3101,3 +3101,58 @@ footer {
 .hero-arbitres .carousel-background {
     z-index: -1 !important;
 }
+
+/* ===== CONVOCATIONS DISPLAY SECTION (Category Pages) ===== */
+.convocations-display-section {
+    margin-top: 50px;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, var(--blue-light-ultra) 0%, #f8faff 100%);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.convocations-display-section h3 {
+    color: var(--primary);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.convocations-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.convocation-item-display {
+    max-width: 300px;
+    padding: 16px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.convocation-item-display:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transform: translateY(-4px);
+}
+
+.convocation-item-display img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.convocation-item-display p {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 12px;
+}
+
+.convocation-item-display .btn {
+    display: inline-block;
+    margin-top: 12px;
+}
