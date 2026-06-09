@@ -8,10 +8,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         /* ===== STYLES SPÉCIFIQUES CONVOCATIONS ===== */
+        body {
+            background: linear-gradient(135deg, #f0f5ff 0%, #f9fafb 100%);
+            background-attachment: fixed;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(0,61,165,0.03)" stroke-width="1"/></pattern></pattern></defs><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+        }
+
         .convocation-container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 40px auto;
             padding: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         .auth-modal {
@@ -111,17 +119,21 @@
             border-radius: 12px;
             margin-bottom: 30px;
             text-align: center;
+            box-shadow: var(--shadow-lg);
         }
 
         .team-header h1 {
             margin: 0;
             font-size: 32px;
             margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .team-header p {
             margin: 0;
             opacity: 0.95;
+            font-size: 16px;
         }
 
         .convocation-section {
@@ -130,6 +142,19 @@
             border-radius: 12px;
             box-shadow: var(--shadow-md);
             margin-bottom: 30px;
+            border-top: 3px solid var(--primary);
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .section-title {
@@ -432,6 +457,39 @@
                 <nav>
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
+                        <li class="dropdown-menu-item mega-menu-item">
+                            <a href="club.html" class="nav-link-with-arrow">Club</a>
+                            <ul class="dropdown-submenu mega-menu">
+                                <li class="mega-menu-column">
+                                    <span class="mega-menu-title">La Vie du Club</span>
+                                    <ul class="mega-menu-links">
+                                        <li><a href="club.html#convocation">Convocations</a></li>
+                                        <li><a href="club.html#actualites-du-club">Actualites</a></li>
+                                        <li><a href="club.html#planning-bar">Planning de bar</a></li>
+                                        <li><a href="club.html#licences">Licences 2025-2026</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mega-menu-column">
+                                    <span class="mega-menu-title">A Propos du Club</span>
+                                    <ul class="mega-menu-links">
+                                        <li><a href="club.html#a-propos-du-club">Notre histoire</a></li>
+                                        <li><a href="comite-directeur.html">Le comite directeur</a></li>
+                                        <li><a href="organigramme-sportif.html">Organigramme sportif</a></li>
+                                        <li><a href="club.html#information-club">Commissions</a></li>
+                                        <li><a href="club.html#information-club">Arbitres</a></li>
+                                        <li><a href="club.html#information-club">Charte du club</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mega-menu-column">
+                                    <span class="mega-menu-title">Evenements</span>
+                                    <ul class="mega-menu-links">
+                                        <li><a href="club.html#evenements">Calendrier des manifestations</a></li>
+                                        <li><a href="club.html#evenements">Tournois</a></li>
+                                        <li><a href="club.html#evenements">Stages vacances</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
                         <li><a href="equipes.html">Équipes</a></li>
                         <li><a href="partenaires.html">Partenaires</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -514,6 +572,7 @@
                 <h4>Navigation</h4>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
+                    <li><a href="club.html">Club</a></li>
                     <li><a href="equipes.html">Équipes</a></li>
                     <li><a href="partenaires.html">Partenaires</a></li>
                     <li><a href="contact.html">Contact</a></li>
@@ -523,6 +582,14 @@
                 <h4>Contact</h4>
                 <p>Email: <a href="mailto:saintmarcfoot@gmail.com">saintmarcfoot@gmail.com</a></p>
                 <p>Tel: +33 9 62 15 48 87</p>
+            </div>
+            <div class="footer-section">
+                <h4>Suivez-Nous</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/17PXhodGtZ/?mibextid=wwXIfr" target="_blank" title="Facebook" class="social-btn facebook-btn">Facebook</a>
+                    <a href="https://www.instagram.com/saintmarcfootball?igsh=MTlsZHZ5NmU0bGlvYg==" target="_blank" title="Instagram" class="social-btn instagram-btn">Instagram</a>
+                    <a href="https://www.linkedin.com/in/saint-marc-football-b31a57375?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" title="LinkedIn" class="social-btn linkedin-btn">LinkedIn</a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">

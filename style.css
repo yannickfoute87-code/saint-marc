@@ -3156,3 +3156,108 @@ footer {
     display: inline-block;
     margin-top: 12px;
 }
+
+/* ===== TEAM CONVOCATIONS SECTION (Team Details Page) ===== */
+.team-convocations-section {
+    margin-top: 30px;
+    padding: 30px;
+    background: linear-gradient(135deg, var(--primary-ultra-light) 0%, #f8faff 100%);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary);
+}
+
+.team-convocations-section h3 {
+    color: var(--primary);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.team-convocations-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.team-convocation-card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.team-convocation-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-6px);
+    border-color: var(--primary);
+}
+
+.team-convocation-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background: var(--gray-100);
+    display: block;
+}
+
+.team-convocation-pdf {
+    justify-content: center;
+    align-items: center;
+}
+
+.team-convocation-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    width: 100%;
+    margin: 0;
+}
+
+.team-convocation-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    padding: 12px;
+    word-break: break-word;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.team-convocation-date {
+    font-size: 11px;
+    color: var(--text-secondary);
+    padding: 0 12px;
+    margin-bottom: 8px;
+}
+
+.team-convocation-download {
+    display: block;
+    padding: 8px 12px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 0 0 8px 8px;
+    transition: background 0.3s;
+}
+
+.team-convocation-download:hover {
+    background: var(--primary-dark);
+}

@@ -586,6 +586,46 @@ function loadPoleGallery() {
                 </a>
             ` : '';
 
+            // Charger les convocations téléversées
+            let convocationsGalleryMarkup = '';
+            if (convocationCode) {
+                const key = 'convocations_' + convocationCode;
+                const convocations = JSON.parse(localStorage.getItem(key) || '[]');
+                if (convocations.length > 0) {
+                    let convCardsHtml = '';
+                    convocations.forEach((conv) => {
+                        const isPdf = conv.type === 'application/pdf';
+                        if (isPdf) {
+                            convCardsHtml += `
+                                <div class="team-convocation-card team-convocation-pdf">
+                                    <div class="team-convocation-icon">📄</div>
+                                    <div class="team-convocation-name">${conv.name}</div>
+                                    <div class="team-convocation-date">${conv.date}</div>
+                                    <a href="${conv.data}" download="${conv.name}" class="team-convocation-download">Télécharger</a>
+                                </div>
+                            `;
+                        } else {
+                            convCardsHtml += `
+                                <div class="team-convocation-card">
+                                    <img src="${conv.data}" alt="${conv.name}" class="team-convocation-img">
+                                    <div class="team-convocation-name">${conv.name}</div>
+                                    <div class="team-convocation-date">${conv.date}</div>
+                                    <a href="${conv.data}" download="${conv.name}" class="team-convocation-download">Télécharger</a>
+                                </div>
+                            `;
+                        }
+                    });
+                    convocationsGalleryMarkup = `
+                        <div class="team-convocations-section">
+                            <h3>📋 Convocations de l'équipe</h3>
+                            <div class="team-convocations-gallery">
+                                ${convCardsHtml}
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+
             detailsContent.className = 'team-detail-card';
             detailsContent.innerHTML = `
                 <div class="team-detail-photo">
@@ -601,6 +641,7 @@ function loadPoleGallery() {
                     ${classementMarkup}
                     ${convocationMarkup}
                 </div>
+                ${convocationsGalleryMarkup}
             `;
             detailsSection.style.display = 'block';
             if (poleGallerySection) {
