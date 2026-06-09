@@ -1714,53 +1714,6 @@ form textarea {
     color: var(--primary);
 }
 
-.commission-social-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    margin-top: 36px;
-    padding: 28px;
-    background: var(--primary-dark);
-    color: var(--white);
-    border-radius: var(--radius-md);
-}
-
-.commission-social-section h2 {
-    color: var(--white);
-    margin: 0 0 8px;
-    text-align: left;
-}
-
-.commission-social-section h2::after {
-    display: none;
-}
-
-.commission-social-section p {
-    color: rgba(255, 255, 255, 0.82);
-    margin: 0;
-}
-
-.commission-social-kicker {
-    color: var(--secondary) !important;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    margin-bottom: 8px !important;
-    text-transform: uppercase;
-}
-
-.commission-social-links {
-    flex: 0 0 auto;
-    justify-content: flex-end;
-}
-
-.commission-social-links .social-btn {
-    min-height: 36px;
-    padding: 9px 14px;
-    font-size: 12px;
-}
-
 @media (max-width: 900px) {
     .team-detail-card {
         grid-template-columns: 1fr;
@@ -1782,14 +1735,6 @@ form textarea {
         grid-template-columns: minmax(0, 1fr);
     }
 
-    .commission-social-section {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .commission-social-links {
-        justify-content: flex-start;
-    }
 }
 
 /* ============= ORGANIGRAMMES ============= */
