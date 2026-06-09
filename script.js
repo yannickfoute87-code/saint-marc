@@ -549,6 +549,21 @@ function loadPoleGallery() {
         }
     };
     
+    // Mapping pour les codes d'équipe pour les convocations
+    const getTeamConvocationCode = (pole, team, age) => {
+        if (pole === 'senior' && team) return `senior_${team}`;
+        if (age) {
+            const ageMap = {
+                'u18': 'u18', 'u17': 'u17', 'u16': 'u16',
+                'u15': 'u15', 'u14': 'u14', 'u13a': 'u13', 'u13': 'u13', 'u12': 'u12',
+                'u11': 'u11', 'u10': 'u10', 'u9': 'u9', 'u8': 'u8', 'u7': 'u7', 'u6': 'u6',
+                'u14f_u15f': 'feminin'
+            };
+            return ageMap[age] || age;
+        }
+        return null;
+    };
+
     if (poleData) {
         title.textContent = poleData.title;
         gallery.innerHTML = '';
@@ -563,6 +578,13 @@ function loadPoleGallery() {
             ` : `
                 <p class="team-detail-muted">Classement à venir</p>
             `;
+            
+            const convocationCode = getTeamConvocationCode(pole, team, age);
+            const convocationMarkup = convocationCode ? `
+                <a class="btn team-detail-convocation" href="convocations.html?team=${convocationCode}" style="background: #10b981; margin-top: 10px;">
+                    📋 Gestion Convocations
+                </a>
+            ` : '';
 
             detailsContent.className = 'team-detail-card';
             detailsContent.innerHTML = `
@@ -577,6 +599,7 @@ function loadPoleGallery() {
                         <p><strong>Effectif:</strong> ${details.players}</p>
                     </div>
                     ${classementMarkup}
+                    ${convocationMarkup}
                 </div>
             `;
             detailsSection.style.display = 'block';
