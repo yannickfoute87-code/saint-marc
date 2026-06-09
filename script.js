@@ -593,15 +593,17 @@ function loadPoleGallery() {
                 const convocations = JSON.parse(localStorage.getItem(key) || '[]');
                 if (convocations.length > 0) {
                     let convCardsHtml = '';
-                    convocations.forEach((conv) => {
+                    convocations.forEach((conv, index) => {
                         const isPdf = conv.type === 'application/pdf';
                         if (isPdf) {
                             convCardsHtml += `
-                                <div class="team-convocation-card team-convocation-pdf">
+                                <div class="team-convocation-card team-convocation-pdf" onclick="viewPDF('${conv.data}', '${conv.name.replace(/'/g, "\\'")}')">
                                     <div class="team-convocation-icon">📄</div>
                                     <div class="team-convocation-name">${conv.name}</div>
                                     <div class="team-convocation-date">${conv.date}</div>
-                                    <a href="${conv.data}" download="${conv.name}" class="team-convocation-download">Télécharger</a>
+                                    <div class="team-convocation-actions">
+                                        <a href="${conv.data}" download="${conv.name}" class="team-convocation-download" onclick="event.stopPropagation()">Télécharger</a>
+                                    </div>
                                 </div>
                             `;
                         } else {
@@ -610,7 +612,9 @@ function loadPoleGallery() {
                                     <img src="${conv.data}" alt="${conv.name}" class="team-convocation-img">
                                     <div class="team-convocation-name">${conv.name}</div>
                                     <div class="team-convocation-date">${conv.date}</div>
-                                    <a href="${conv.data}" download="${conv.name}" class="team-convocation-download">Télécharger</a>
+                                    <div class="team-convocation-actions">
+                                        <a href="${conv.data}" download="${conv.name}" class="team-convocation-download">Télécharger</a>
+                                    </div>
                                 </div>
                             `;
                         }
@@ -724,5 +728,39 @@ function redirectClassement(selectId) {
         window.open(url, '_blank');
     } else {
         alert('Veuillez sélectionner une équipe');
+    }
+}
+
+// Fonction pour afficher une modal PDF
+function viewPDF(dataUrl, filename) {
+    let modal = document.getElementById('pdfModal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'pdfModal';
+        modal.className = 'pdf-modal';
+        modal.innerHTML = `
+            <div class="pdf-modal-content">
+                <button class="pdf-modal-close" onclick="closePDF()">&times;</button>
+                <h2 id="pdfTitle" style="text-align: center; margin: 0 0 20px 0;"></h2>
+                <iframe id="pdfViewer" style="width: 100%; height: calc(100vh - 120px); border: none; border-radius: 8px;"></iframe>
+            </div>
+        `;
+        document.body.appendChild(modal);
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closePDF();
+            }
+        });
+    }
+    document.getElementById('pdfTitle').textContent = filename;
+    document.getElementById('pdfViewer').src = dataUrl;
+    modal.style.display = 'flex';
+}
+
+function closePDF() {
+    const modal = document.getElementById('pdfModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.getElementById('pdfViewer').src = '';
     }
 }

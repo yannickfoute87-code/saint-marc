@@ -3261,3 +3261,88 @@ footer {
 .team-convocation-download:hover {
     background: var(--primary-dark);
 }
+
+/* ===== PDF MODAL ===== */
+.pdf-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.pdf-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 90%;
+    height: 90vh;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 30px;
+    overflow: auto;
+}
+
+.pdf-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: var(--gray-700);
+    cursor: pointer;
+    z-index: 10000;
+    transition: color 0.2s;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pdf-modal-close:hover {
+    color: var(--primary);
+}
+
+/* ===== TEAM CONVOCATION PDF CARD ===== */
+.team-convocation-pdf {
+    cursor: pointer;
+    position: relative;
+}
+
+.team-convocation-pdf:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 15px 30px rgba(0, 61, 165, 0.3) !important;
+}
+
+.team-convocation-pdf .team-convocation-icon {
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(135deg, #f0f5ff 0%, #e8eeff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    border-bottom: 2px solid var(--primary-light);
+    border-radius: 8px 8px 0 0;
+    transition: all 0.3s;
+}
+
+.team-convocation-pdf:hover .team-convocation-icon {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+}
+
+.team-convocation-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
