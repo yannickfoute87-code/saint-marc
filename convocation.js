@@ -12,6 +12,15 @@ function getCategory() {
 const category = getCategory();
 const categoryStorageKey = STORAGE_KEY + category;
 
+function replaceLegacyLogo() {
+    document.querySelectorAll('img[src="photo/logo rond blanc.PNG"]').forEach((img) => {
+        img.src = 'photo/logo saint marc .jpeg';
+        if (!img.alt || img.alt === 'Logo') {
+            img.alt = 'Logo Saint Marc Football';
+        }
+    });
+}
+
 // DOM Elements
 const authContainer = document.getElementById('auth-container');
 const coachSection = document.getElementById('coach-section');
@@ -271,6 +280,7 @@ logoutBtn.addEventListener('click', () => {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
+    replaceLegacyLogo();
     checkAuth();
     
     // If not authenticated, show public convocations instead of auth

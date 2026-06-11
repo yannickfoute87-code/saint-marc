@@ -629,6 +629,11 @@
                 return;
             }
 
+            if (/^senior_[a-d]$/.test(team)) {
+                window.location.href = 'equipes.html';
+                return;
+            }
+
             currentTeam = team;
             setTeamInfo(team);
             setupEventListeners();

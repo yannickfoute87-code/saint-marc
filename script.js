@@ -7,6 +7,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.querySelector('nav > ul');
     const nav = document.querySelector('nav');
 
+    document.querySelectorAll('img[src="photo/logo rond blanc.PNG"]').forEach((img) => {
+        img.src = 'photo/logo saint marc .jpeg';
+        if (!img.alt || img.alt === 'Logo') {
+            img.alt = 'Logo Saint Marc Football';
+        }
+    });
+
     if (hamburger && navMenu) {
         hamburger.setAttribute('aria-label', 'Ouvrir le menu');
         hamburger.setAttribute('aria-expanded', 'false');
@@ -551,7 +558,7 @@ function loadPoleGallery() {
     
     // Mapping pour les codes d'équipe pour les convocations
     const getTeamConvocationCode = (pole, team, age) => {
-        if (pole === 'senior' && team) return `senior_${team}`;
+        if (pole === 'senior') return null;
         if (age) {
             const ageMap = {
                 'u18': 'u18', 'u17': 'u17', 'u16': 'u16',
