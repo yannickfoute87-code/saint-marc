@@ -116,9 +116,25 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            // Simple success message
-            alert('Message envoyé ! Nous vous répondrons bientôt.');
-            contactForm.reset();
+            const nom = document.getElementById('nom')?.value.trim() || '';
+            const email = document.getElementById('email')?.value.trim() || '';
+            const telephone = document.getElementById('telephone')?.value.trim() || '';
+            const sujetSelect = document.getElementById('sujet');
+            const sujet = sujetSelect?.selectedOptions?.[0]?.textContent?.trim() || sujetSelect?.value || '';
+            const message = document.getElementById('message')?.value.trim() || '';
+
+            const body = [
+                `Nom: ${nom}`,
+                `Email: ${email}`,
+                `Téléphone: ${telephone || 'Non renseigné'}`,
+                `Sujet: ${sujet}`,
+                '',
+                'Message:',
+                message
+            ].join('\r\n');
+
+            const mailtoLink = `mailto:saintmarcfoot@gmail.com?subject=${encodeURIComponent(`Contact site - ${sujet || 'Nouvelle demande'}`)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
         });
     }
 
