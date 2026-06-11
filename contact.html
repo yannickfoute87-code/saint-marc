@@ -177,11 +177,7 @@
     <div class="container">
         <section>
             <h2>Formulaire de Contact</h2>
-            <form id="contactForm" action="https://formsubmit.co/saintmarcfoot@gmail.com" method="POST">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_subject" value="Nouveau message depuis le site Saint Marc Football">
-                <input type="hidden" name="_next" value="contact.html?sent=1">
+            <form id="contactForm" action="mailto:saintmarcfoot@gmail.com" method="post" enctype="text/plain">
                 <label for="nom">Nom Complet:</label>
                 <input type="text" id="nom" name="nom" required>
 
