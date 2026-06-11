@@ -114,27 +114,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Form handling (if needed)
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const nom = document.getElementById('nom')?.value.trim() || '';
-            const email = document.getElementById('email')?.value.trim() || '';
-            const telephone = document.getElementById('telephone')?.value.trim() || '';
-            const sujetSelect = document.getElementById('sujet');
-            const sujet = sujetSelect?.selectedOptions?.[0]?.textContent?.trim() || sujetSelect?.value || '';
-            const message = document.getElementById('message')?.value.trim() || '';
-
-            const body = [
-                `Nom: ${nom}`,
-                `Email: ${email}`,
-                `Téléphone: ${telephone || 'Non renseigné'}`,
-                `Sujet: ${sujet}`,
-                '',
-                'Message:',
-                message
-            ].join('\r\n');
-
-            const mailtoLink = `mailto:saintmarcfoot@gmail.com?subject=${encodeURIComponent(`Contact site - ${sujet || 'Nouvelle demande'}`)}&body=${encodeURIComponent(body)}`;
-            window.location.href = mailtoLink;
+        contactForm.addEventListener('submit', function() {
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            if (submitButton) {
+                submitButton.textContent = 'Envoi en cours...';
+                submitButton.disabled = true;
+            }
         });
     }
 
